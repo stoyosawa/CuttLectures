@@ -5,16 +5,6 @@
 中級以上を目指すネットワークエンジニアを対象に、インターネットの基盤技術であるTCP/IPの構造と挙動を、パケットキャプチャツール（Wireshark）を用いたパケット解析を通じて具体的に学びます。
 
 
-### 講師紹介
-
-- 氏名: 豊沢 聡（とよさわ さとし）
-- 所在: ニュージーランド在住（現在、日本との時差は4時間）
-- 経歴: 電話会社で研究員 ～ 電話会社でシステムエンジニア ～ 大学生 ～ 大学教員 ～ ネットワーク機器会社でサポートエンジニア ～ 現在に至る
-- 好きな言語: C/C++、Perl、JavaScript、Python
-- 著作: 自著、訳書、監修書がこれまでに[33冊](https://github.com/stoyosawa/PublicationList/blob/master/Books.md)
-- Githubページ: [https://github.com/stoyosawa/](https://github.com/stoyosawa/)
-
-
 ### 参加者自己紹介
 
 - 氏名

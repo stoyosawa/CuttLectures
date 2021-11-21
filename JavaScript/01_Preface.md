@@ -1,13 +1,4 @@
-## 0. はじめに
-
-- 本セミナーの目標
-- JavaScriptのポピュラリティ
-- 講師紹介
-- 参加者自己紹介
-- 時間割
-- 質問?
-- 参照サイト
-
+## 1. はじめに
 
 ### 本セミナーの目標
 
@@ -16,16 +7,6 @@
 - 多様なJavaScriptのプログラミング・実行環境を理解し、利用する。
 
 > JavaScriptは主として動的なWebページを生成するときに用いられますが、本セミナーではページそのものを表現する[HTML](https://developer.mozilla.org/ja/docs/Web/HTML)や[CSS](https://developer.mozilla.org/ja/docs/Web/CSS)、あるいはそれらをJavaScriptから駆動する[DOM](https://developer.mozilla.org/ja/docs/Web/API/Document_Object_Model)は扱いません。したがって、このコースを修了したからよといって、素敵なWebページが書けるようになるわけではありません。
-
-
-### 講師紹介
-
-- 氏名: 豊沢 聡（とよさわ さとし）
-- 所在: ニュージーランド在住（現在、日本との時差は4時間）
-- 経歴: 電話会社で研究員 ～ 電話会社でシステムエンジニア ～ 大学生 ～ 大学教員 ～ ネットワーク機器会社でサポートエンジニア ～ 現在に至る
-- 好きな言語: C/C++、Perl、JavaScript、Python
-- 著作: 自著、訳書、監修書がこれまでに[33冊](https://github.com/stoyosawa/PublicationList/blob/master/Books.md)
-- Githubページ: [https://github.com/stoyosawa/](https://github.com/stoyosawa/)
 
 
 ### 参加者自己紹介
