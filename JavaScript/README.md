@@ -79,7 +79,7 @@ Firefox | ☰ > その他のツール > ウェブ開発ツール > コンソー�
 console.log('Hello World');
 ```
 
-複数行のコードも一気に実行できます。[sum.js](./codes/sum/js)を試してください。
+複数行のコードも一気に実行できます。[sum.js](./codes/sum.js)を試してください。
 
 > REPL環境で上記のように戻り値のない文を評価（実行）すると`undefined`と（やや怪しげに）表示されますが、これは正常な動作です。  
 `≫ console.log('hello world');                                 // 実行`  
