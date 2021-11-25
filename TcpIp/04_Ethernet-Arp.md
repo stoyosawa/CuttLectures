@@ -23,7 +23,7 @@ Ethernetは書き込まれたデータがなんであるかを、Ethernetヘッ�
     - [IETF RFC 826](https://datatracker.ietf.org/doc/html/rfc826) - 仕様です。
     - [Network Sorcery: ARP](http://www.networksorcery.com/enp/protocol/arp.htm) - パケット（メッセージ）構造と各種パラメータの値と意味だけならこちら。
     - [IANA Address Resolution Protocol (ARP) Parameters](https://www.iana.org/assignments/arp-parameters/arp-parameters.xhtml) - ARPの各種パラメータの値の公式文書。
-    - [ARP(Address Resolution Protocol) とは – 概要と基本動作](https://shinmeisha.co.jp/newsroom/2020/02/05/arp%E3%81%A8%E3%81%AF/) - ARPのわかりやすい概要。
+    - [ARP（Address Resolution Protocol）とは – 概要と基本動作](https://shinmeisha.co.jp/newsroom/2020/02/05/arp%E3%81%A8%E3%81%AF/) - ARPのわかりやすい概要。
     - [IETF RFC 5227](http://www.networksorcery.com/enp/rfc/rfc5227.txt) - パケットキャプチャには大量のARPが観察されますが、これはIPアドレスの衝突を検出するためのものです。このRFCはその仕様です。
 - ツール
     - [Microsoft Docs: arp](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/arp) - Unixでも同名です。
@@ -61,7 +61,7 @@ C:\temp arp -a                                                 # -aはARPテー�
 ```
 
 - 動的: ローカルのIPアドレスを使用したときに起動したARPプロトコルが取得した情報。再起動すれば消えます。稼働中に対応が変更されるのは、NICを入れ替えた、あるいはIPアドレスを変更したときくらいです。
-- 静的: あらかじめ定められた（あるいは算出できる）IPアドレス-MACアドレス対応。システムが自動的に生成します。
+- 静的: あらかじめ定められた（あるいは算出できる）IPアドレス-MACアドレス対応。`arp -s`から設定することもできますが、デフォルトで見られるはシステムが自動的に生成したものです。
 
 続いて、すべてのエントリを消去します。これで、次にローカルネットワーク上のホストにアクセスすれば、ARPの動作が見られます（ARPテーブルに対応がすでにあればその情報が使われるのでARPは起動しません）。
 
