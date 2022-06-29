@@ -11,7 +11,6 @@ import requests
 def load_body(url):
     '''指定のurlのHTMLボディを取得する。200 OK でなければ例外を上げる。'''
     response = requests.get(url)
-    response.encoding = 'utf-8'
     if response.status_code != 200:
     	return None
 

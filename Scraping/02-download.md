@@ -54,25 +54,34 @@ HTTPサーバが返すHTMLデータ本体は`requests.Response`オブジェク�
 
 受信したテキストデータの実際の文字エンコーディングが、`requests`あるいはPythonが想定したものと異なるときは、文字化けが生じます。
 
-たとえば、ShiftJISで書かれたHTMLファイルを読み込み、それを`requests`がutf-8と勘違いして解釈すると次のようになります（出力部分は可読性を考慮して手で折り返しています）。
+たとえば、ShiftJISで書かれたHTMLファイルを読み込み、それを`requests`がutf-8と勘違いして解釈すると次のようになります。
 
-```python
+```Python
 >>> url_sjis = 'https://raw.githubusercontent.com/stoyosawa/CuttSeminars/main/Scraping/Codes/shift_jis.html'
 >>> sjis = requests.get(url_sjis)
 >>> sjis.text
-'<!DOCTYPE html>\n<html>\n<meta http-equiv="content-type" content="text/html; charset=shift_jis">\n<head>\n
- <title>Hello Shift-JIS</title>\n
- </head>\n\n<body bagcolor="aquamarine">\n<p>���{�ꂪ Shift-JIS �ŏ�����Ă��܂��B</p>\n</body>\n</html>'
+'<html>\n<meta http-equiv="content-type" content="text/html; charset=shift_jis">\n<body bagcolor="aquamarine">\n<p>���{�ꂪ Shift-JIS �ŏ�����Ă��܂��B</p>\n</body>\n</html>'
 ```
 
-文字化けしている箇所は、元のファイルでは「日本語が Shift-JIS で書かれています。」とかかれています。
+`request`が読み込んだデータをどのように解釈しているかは、`requests.Response`オブジェクトの`encoding`属性から知ることができます。
 
+```Python
+>>> sjis.encoding
+'utf-8'
+```
+
+ここでは、utf-8と勘違いしているようです。
+
+そこで、`encoding`をオーバーライトすることで、データがShiftJISであることを伝えます。
+
+```Python
 >>> sjis.encoding = 'shift_jis'
 >>> sjis.text
-'<!DOCTYPE html>\n<html>\n<meta http-equiv="content-type" content="text/html; charset=shift_jis">\n<head>\n <title>Hello Shift-JIS</title>\n</head>\n\n<body bagcolor="aquamarine">\n<p>日本語が Shift-JIS で書かれています。</p>\n</body>\n</html>'
->>>
+'<html>\n<meta http-equiv="content-type" content="text/html; charset=shift_jis">\n<body bagcolor="aquamarine">\n<p>日本語が Shift-JIS で書かれています。</p>\n</body>\n</html>'
+```
+
+### まとめ
+
+以上、URLからWebページを取得する操作を関数にまとめ、1本のスクリプトファイルにすると[downloader.py](./Codes/downloader.py "INTERNAL")のようになります（文字化け対処部分はUTF-8を想定しているので加えてありません）。
 
 
-
-
-`requests`は、受信したデータストリームで用いられている「であろう」文字エンコーディングを推測します（マニュアルはこれを*educated guess*と称しています）。通常はHTML応答に示される`Content-Type:`ヘッダの値が用いられますが、このヘッダは必ずしも存在するとは限りません。また、Pythonのデフォルトの文字エンコーディングはUTF-8なので、文字列はUTF-8でなければなりません。
