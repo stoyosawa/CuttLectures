@@ -1,6 +1,6 @@
 ## インストール
 
-まず[Python](https://www.python.org/ "LINK")本体を、続いてこのセミナーで利用するパッケージをインストールする方法を説明します。
+最初に[Python](https://www.python.org/ "LINK")本体を、続いてこのセミナーで利用するパッケージをインストールする方法を説明します。
 
 いずれもマルチプラットフォーム対応なので環境依存性はほとんどありませんが、ここではWindowsに限定して記述します。他環境では、たとえばWindowsコマンドプロンプトをUnixコンソールに読み替えるなどしてください。
 
@@ -113,6 +113,23 @@ Installing collected packages: soupsieve, beautifulsoup4
 Successfully installed beautifulsoup4-4.11.1 soupsieve-2.3.2.post1
 ```
 
+なお、インポートするときのパッケージ名は`bs4`です。フルネームでは見つかりません。
+
+```Python
+>>> import beautifulsoup4
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'beautifulsoup4'
+
+>>> import beautifulsoup
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'beautifulsoup'
+
+>>> import bs4
+>>>
+```
+
 #### Janome
 
 ```
@@ -125,7 +142,7 @@ Successfully installed janome-0.4.2
 
 #### Wordcloud
 
-`matplotlib`や`numpy`など、依存するパッケージも同時導入されます。
+`matplotlib`や`numpy`など、依存するパッケージも同時に導入されます。
 
 ```
 C:\temp>pip install wordcloud
@@ -158,8 +175,11 @@ Collecting packaging>=20.0
   Using cached packaging-21.3-py3-none-any.whl (40 kB)
 Collecting six>=1.5
   Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
-Installing collected packages: six, pyparsing, pillow, numpy, kiwisolver, fonttools, cycler, python-dateutil, packaging, matplotlib, wordcloud
-Successfully installed cycler-0.11.0 fonttools-4.33.3 kiwisolver-1.4.3 matplotlib-3.5.2 numpy-1.23.0 packaging-21.3 pillow-9.1.1 pyparsing-3.0.9 python-dateutil-2.8.2 six-1.16.0 wordcloud-1.8.2.2
+Installing collected packages: six, pyparsing, pillow, numpy, kiwisolver, fonttools,
+ cycler, python-dateutil, packaging, matplotlib, wordcloud
+Successfully installed cycler-0.11.0 fonttools-4.33.3 kiwisolver-1.4.3 matplotlib-3.5.2
+ numpy-1.23.0 packaging-21.3 pillow-9.1.1 pyparsing-3.0.9 python-dateutil-2.8.2 six-1.16.0
+ wordcloud-1.8.2.2
 ```
 
 #### 確認
