@@ -62,7 +62,7 @@ HTMLデータからHTMLタグなどを外し、テキスト（ブラウザ上に
 
 ![Deliverable](./Images/deliverable.png)  
 ・{単語: 頻度}の辞書（`{'word1':p1, 'word2':p2, ..., 'wordN':pN}}`）です。  
-・スクリプトは[`calc_probs.py`](./Codes/short_version/calc_probs "CODE")です。
+・スクリプトは[`calc_probs.py`](./Codes/short_version/calc_probs.py "CODE")です。
 
 
 ### WordCloudの生成

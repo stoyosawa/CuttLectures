@@ -19,7 +19,7 @@
 - [インストール](./01-Install.md "INTERNAL")
 - [ページの取得](./02-GetPage.md "INTERNAL")
 - [テキストの取得](./03-ExtractTexts.md "INTERNAL")
-- [単語への分解](./04-TokenizeTexts.md "INTERNAL")
+- [単語への分解](./04-Tokenize.md "INTERNAL")
 - [頻度のカウント](./05-CalcProbs.md "INTERNAL")
 - [WordCloudの生成](./06-GenerateWc.md "INTERNAL")
 
