@@ -5,6 +5,7 @@
 本セミナーでは、Webスクレイピングとその視覚化を説明します。具体的には、指定のURLから、次のようにそのページの文章にある単語を散りばめた画像を生成するPythonスクリプトを作成します。
 
 <img src="./Images/www_cutt_co_jp.png" width="400">  
+
 *株式会社 カットシステムのトップページ`https://www.cutt.co.jp`より*
 
 使用頻度が高い単語ほど大きく表示されます。これを[ワードクラウド](https://ja.wikipedia.org/wiki/タグクラウド "LINK")（word cloud）と呼びます。
@@ -14,7 +15,7 @@
 
 90分お試し版は次のトピックを扱います。
 
-- [概要](./00-overview.md "INTERNAL")
+- [概要](./00-Overview.md "INTERNAL")
 - [インストール](./01-Install.md "INTERNAL")
 - [ページの取得](./02-GetPage.md "INTERNAL")
 - [テキストの取得](./03-ExtractTexts.md "INTERNAL")
