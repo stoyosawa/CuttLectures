@@ -4,7 +4,7 @@
 
 - [TCP/IPネットワーキング](./TcpIp/README.md)
 - [JavaScript入門](./JavaScript/README.md)
-- [jqによるJSON処理](./jq/README.md)
+- [jqによるJSON処理](./Jq/README.md)
 - Node.js入門
 - [Webスクレイピング](./Scraping/README.md)
 
