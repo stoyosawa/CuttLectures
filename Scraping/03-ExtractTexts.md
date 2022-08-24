@@ -30,7 +30,7 @@ Beautiful Soupのパッケージ名は（バージョン4なので）`bs4`です
 <class 'bs4.BeautifulSoup'>
 ```
 
-なお、BeatifulSoupコンストラクタの第2引数は指定しなくても「だいたい大丈夫」ですが、スクリプトファイルから実行する次のような警告を発します。
+なお、BeatifulSoupコンストラクタの第2引数は指定しなくても「だいたい大丈夫」ですが、スクリプトファイルから実行すると次のような警告を発します。
 
 > GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (`"html.parser"`). **This usually isn't a problem**, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
 

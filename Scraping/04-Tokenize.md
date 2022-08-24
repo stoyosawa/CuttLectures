@@ -11,7 +11,7 @@
 >>> from janome.tokenizer import Tokenizer
 ```
 
-tokenizeとは、文を単語（形態素）単位に分解する処理を指します。
+tokenizeは、文を単語（形態素）単位に分解する処理です。
 
 
 ### Tokenierオブジェクトの生成
