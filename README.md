@@ -5,6 +5,6 @@
 - [TCP/IPネットワーキング](./TcpIp/README.md)
 - [JavaScript入門](./JavaScript/README.md)
 - [jqによるJSON処理](./Jq/README.md)
-- Node.js入門
 - [Webスクレイピング](./Scraping/README.md)
+- [Python PIL/Pillow](./Pillow/README.md)
 
