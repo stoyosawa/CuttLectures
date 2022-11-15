@@ -2,7 +2,7 @@
 
 ### 目的
 
-本セミナーでは、Webスクレイピングとその視覚化を説明します。具体的には、指定のURLから、次のようにそのページの文章にある単語を散りばめた画像を生成するPythonスクリプトを作成します。
+本セミナーでは、[Webスクレイピング](https://ja.wikipedia.org/wiki/ウェブスクレイピング "LINK")とその視覚化を説明します。具体的には、指定のURLから、次のようにそのページの文章にある単語を散りばめた画像を生成するPythonスクリプトを作成します。
 
 <img src="./Images/www_cutt_co_jp.png" width="400">  
 
@@ -35,7 +35,7 @@
 
 ### 使用言語
 
-プログラミングにはPythonを用います。また、Webページアクセス、HTMLの解析、文章のまとめと語の頻度解析などに次のパッケージを利用します。
+プログラミングにはPythonを用います。Webページアクセス、HTMLの解析、文章のまとめと語の頻度解析に次のパッケージを利用します。
 
 - [requests](https://requests-docs-ja.readthedocs.io/en/latest/ "LINK") - Webアクセス（HTTPクライアント）
 - [Beautiful Soup](http://kondou.com/BS4/ "LINK") - HTML解析（パーザー）。バージョン4は*bs4*と呼ばれる。
