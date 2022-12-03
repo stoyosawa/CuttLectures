@@ -10,7 +10,7 @@ HTTP のレスポンスコードが 200 OK でなければ None を返す。
 
 def get_page(url):
     response = requests.get(url)
-    response.encoding = 'utf-8'
+    response.encoding = 'utf-8'                     # Content-Type: がないときのため
     if response.status_code != 200:
     	return None
 

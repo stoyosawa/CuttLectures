@@ -1,6 +1,25 @@
 ## テキストの取得
 
-HTMLデータには、`<body></body>`などHTMLタグやJavaScriptコードが混入しています。Webブラウザに表示される可読なテキストだけの抽出には、`bs4`パッケージを利用します。
+HTMLデータには、`<body></body>`などHTMLタグやJavaScriptコードが混入しています。HTMLデータからHTMLタグなどを外し、テキスト（ブラウザ上に見える文章）だけを抽出するには、[`bs4`](https://beautiful-soup-4.readthedocs.io/en/latest/ "LINL")パッケージを用います。
+
+また、得られたテキスト（巨大な1文字列）は行単位に分解し、空白だけの行や行前後にある空白は除きます。
+
+
+### とりあえず試そう
+
+スクリプトは[`extract_texts.html`](./Codes/short_version/extract_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出したテキスト文を表示します。
+
+```
+C:\temp>python extract_texts.py https://www.cutt.co.jp/
+株式会社カットシステム
+先端技術Academy
+出版書籍一覧
+教科書・教材カタログ
+直販案内
+︙
+```
+
+以下、スクリプトの中身を説明します。
 
 
 ### パッケージのインポート
@@ -12,6 +31,7 @@ Beautiful Soupのパッケージ名は（バージョン4なので）`bs4`です
 ```Python
 >>> from bs4 import BeautifulSoup as bs
 ```
+
 
 ### BautifulSoupオブジェクトの生成
 
@@ -29,12 +49,6 @@ Beautiful Soupのパッケージ名は（バージョン4なので）`bs4`です
 >>> type(soup)
 <class 'bs4.BeautifulSoup'>
 ```
-
-なお、BeatifulSoupコンストラクタの第2引数は指定しなくても「だいたい大丈夫」ですが、スクリプトファイルから実行すると次のような警告を発します。
-
-> GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (`"html.parser"`). **This usually isn't a problem**, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
-
-> The code that caused this warning is on line 17 of the file `extract_texts.py`. To get rid of this warning, pass the additional argument `features="html.parser"` to the BeautifulSoup constructor.
 
 
 ### テキストの抽出
@@ -88,7 +102,6 @@ Beautiful Soupのパッケージ名は（バージョン4なので）`bs4`です
 
 207行に減りました。
 
-
 ##### 前後の空白を除去
 
 前後に余分な空白がある行もあります。
@@ -111,23 +124,10 @@ Beautiful Soupのパッケージ名は（バージョン4なので）`bs4`です
 ```
 
 
-### まとめ
+### 次号へ続く
 
-以上をスクリプトファイルにまとめたものは、[extract_texts.py](./Codes/short_version/extract_texts.py "INTERNAL")に収容しました。引数に指定したHTMLデータを取得する`extract_texts()`関数と、それをテストする`main`関数で含まれています。
-
-以降でこの関数を利用するには、次のようにインポートします。
+[extract_texts.py](./Codes/short_version/extract_texts.py "INTERNAL")は、引数に指定したHTMLデータ（`str`）を取得する`extract_texts()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
 
 ```Python
 from extract_texts import extract_texts
 ```
-
-コマンドプロンプトから（`main`から）実行するなら、引数にURLを指定します。`main`は前節の`get_page()`を呼び出すことでHTMLデータを取得し、それを`extract_texts()`に与えることで、整形したテキスト行を表示します。
-
-```
-C:\temp>python extract_texts.py https://www.cutt.co.jp/
-株式会社カットシステム
-先端技術Academy
-出版書籍一覧
-︙
-```
-

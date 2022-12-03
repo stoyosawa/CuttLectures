@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from urllib.parse import urlparse
 import sys
 import wordcloud
 
@@ -14,11 +13,7 @@ from calc_probs import calc_probs                        # 自作
 ワードクラウド画像は URL のドメイン名部分のドット（.）をアンダースコア（_）に変えた名称をファイル名にして保存する。
 '''
 
-def generate_wc(probs, url):
-    # URL からファイル名を構築する
-    domain = urlparse(url).netloc
-    domain = domain.replace('.', '_') + '.png'
-
+def generate_wc(probs, filename='img.png'):
     # ワードクラウドの生成
     wc = wordcloud.WordCloud(
             width=1024,
@@ -26,7 +21,7 @@ def generate_wc(probs, url):
             font_path='/mnt/c/Windows/Fonts/UDDigiKyokashoN-R.ttc'
     )
     img = wc.fit_words(probs)
-    img.to_file(domain)
+    img.to_file(filename)
 
 
 if __name__ == '__main__':
@@ -35,4 +30,4 @@ if __name__ == '__main__':
     texts = extract_texts(html)
     tokens = tokenize_texts(texts)
     prob = calc_probs(tokens)
-    generate_wc(prob, url)
+    generate_wc(prob)

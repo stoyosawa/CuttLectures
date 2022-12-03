@@ -1,6 +1,38 @@
 ## 単語への分解
 
-ワードクラウドを生成するには、文章を単語単位に分解しなければなりません。これには、`janome`パッケージを利用します。ちなみにミシンではなく、[「蛇（パイソン）の眼」](https://mocobeta.github.io/janome/#id17 "LINK")という意味です。
+ワードクラウドを生成するには、文章を単語単位に分解しなければなりません。これには、[`janome`](https://mocobeta.github.io/janome/ "LINK")パッケージを利用します。ちなみにミシンではなく、[「蛇（パイソン）の眼」](https://mocobeta.github.io/janome/#id17 "LINK")という意味です。
+
+`janome`は、たとえば「すもももももももものうち」を「すもも・も・もも・も・もも・の・うち」のように分解してくれます。また、それぞれに名詞や助詞といった品詞情報も加えてくれます。
+
+```
+>>> from janome.tokenizer import Tokenizer
+>>> t = Tokenizer()
+>>> for token in t.tokenize('すもももももももものうち'):
+...     print(token)
+...
+すもも 名詞,一般,*,*,*,*,すもも,スモモ,スモモ
+も    助詞,係助詞,*,*,*,*,も,モ,モ
+もも  名詞,一般,*,*,*,*,もも,モモ,モモ
+も    助詞,係助詞,*,*,*,*,も,モ,モ
+もも  名詞,一般,*,*,*,*,もも,モモ,モモ
+の    助詞,連体化,*,*,*,*,の,ノ,ノ
+うち  名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
+```
+*[Janomeホームページ](https://mocobeta.github.io/janome/ "LINK")より*
+
+ここでは、名詞の単語だけを抽出します。また、そのうち2文字未満のものや数字は取り除きます。
+
+
+### とりあえず試そう
+
+スクリプトは[`tokenize_texts.html`](./Codes/short_version/tokenize_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した単語のリストを表示します。
+
+```
+C:\temp>python tokenize_texts.py https://www.cutt.co.jp/
+['株式会社', 'カット', 'システム', '先端', '技術', 'Academy', '出版', '書籍', '一覧', '教科書',
+ '教材', 'カタログ', '直販', '案内', 'カット', 'システム', '小社', '書籍', '取り扱い', '書店',
+ '一覧', '書店', '著者', '講演', '読者', '特典' ... ]
+```
 
 
 ### パッケージのインポート
@@ -137,19 +169,10 @@ tokenizeは、文を単語（形態素）単位に分解する処理です。
 もっと減りました。
 
 
-### まとめ
+### 次号へ続く
 
-以上をスクリプトファイルにまとめたものは、[tokenize_texts.py](./Codes/short_version/tokenize_texts.py "INTERNAL")に収容しました。テキスト文（行単位）のリストから名詞単語を取得する`tokenize_texts()`関数と、それをテストする`main`関数で含まれています。
-
-以降でこの関数を利用するには、次のようにインポートします。
+[tokenize_texts.py](./Codes/short_version/tokenize_texts.py "INTERNAL")は、引数に指定したテキスト文のリストから名詞単語を抽出する`tokenize_texts()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
 
 ```Python
 from tokenize_texts import tokenize_texts
-```
-
-コマンドプロンプトから（`main`から）実行するなら、引数にURLを指定します。`main`は前節の`get_page()`と`extract_texts()`を呼び出すことでテキスト文のリストを取得し、それを`tokenize_texts()`に与えることで、名詞単語を表示します。
-
-```
-C:\temp>python tokenize_texts.py https://www.cutt.co.jp/
-['株式会社', 'カット', 'システム', '先端', '技術', 'Academy', '出版', '書籍', ...
 ```
