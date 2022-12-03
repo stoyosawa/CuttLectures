@@ -11,12 +11,12 @@
 
 ### 使用言語
 
-プログラミングには[Python](https://www.python.org/ "LINK")を用います。Webページアクセス、HTMLの解析、文章のまとめと語の頻度解析に次のパッケージを利用します。
+プログラミングには[Python](https://www.python.org/ "LINK")を用います。また、次の外部パッケージを利用します。
 
 - [requests](https://requests-docs-ja.readthedocs.io/en/latest/ "LINK") - Webアクセス（HTTPクライアント）
-- [Beautiful Soup](http://kondou.com/BS4/ "LINK") - HTML解析（パーザー）。バージョン4は*bs4*と呼ばれる。
+- [Beautiful Soup](http://kondou.com/BS4/ "LINK") - HTML解析（パーザー）。現行のバージョン4は*bs4*と呼ばれる。
 - [Janome](https://mocobeta.github.io/janome/ "LINK") - 文章解析（形態素解析）
-- [WordCloud](http://amueller.github.io/word_cloud/ "LINK")（英のみ） - 単語リストからwordcloud画像を生成
+- [WordCloud](http://amueller.github.io/word_cloud/ "LINK") - 単語リストからワードクラウド画像を生成
 
 
 ### 環境

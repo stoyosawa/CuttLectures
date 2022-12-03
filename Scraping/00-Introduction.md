@@ -39,22 +39,3 @@ $ python generate_wc.py https://www.cutt.co.jp/
 
 非常にシンプルなスクリプトなので、URLによっては思ったように動作しないかもしれません。
 
-
-### 頻度のカウント
-
-ワードクラウド生成ライブラリが受け付けるデータは単語をキー、その出現頻度を値とした辞書なので、それを生成します。頻度は［単語の個数］÷［全語数］です（0＜p＜1）。単語リストから要素をカウントするだけなので、Pythonの標準機能だけで達成できます。
-
-![Deliverable](./Images/deliverable.png)  
-・{単語: 頻度}の辞書（`{'word1':p1, 'word2':p2, ..., 'wordN':pN}}`）です。  
-・スクリプトは[`calc_probs.py`](./Codes/short_version/calc_probs.py "CODE")です。
-
-
-### WordCloudの生成
-
-上記で得た単語頻度辞書をもとにワードクラウド画像を生成します。これには、`wordcloud`パッケージを用います。
-
-画像ファイル名は指定のURLのドメイン名のドットをアンダースコアに変えたものとします（e.g., `https://www.cutt.co.jp/` > `www_cutt_co_jp.png`）。
-
-![Deliverable](./Images/deliverable.png)  
-・このステップで得られるのは、最初のステップで指定したURLのページの中身のワードクラウド画像です。  
-・スクリプトは[`generate_wc.py`](./Codes/short_version/generate_wc.py "CODE")です。
