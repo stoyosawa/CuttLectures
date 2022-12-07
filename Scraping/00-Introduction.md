@@ -1,6 +1,6 @@
 ## はじめに
 
-本セミナーでは、それぞれのタスクにスクリプトを用意し、これらを連係することで指定のURLからワードクラウド画像を生成します。タスクとその手順は次の通りです。
+ここでは、Webスクレイピングを次図のように5つのタスクに分け、それぞれでスクリプトを用意します。そして、これらを流れ作業のように連係することで、指定のURLからワードクラウド画像を生成します。
 
 <img src="./Images/procedure.png" width="500">
 
@@ -26,7 +26,7 @@ pip install wordcloud
 
 ### 本セミナーのスクリプトのダウンロード
 
-5本のスクリプトは[./Codes/short_version/wc.zip](./Codes/short_version/wc.zip "CODE")にZIPでまとめてあります。ダウンロードして、展開してください。
+5本のスクリプトは[`./Codes/short_version/wc.zip`](./Codes/short_version/wc.zip "CODE")にZIPでまとめてあります。ダウンロードして、展開してください。
 
 
 ### とりあえず試そう

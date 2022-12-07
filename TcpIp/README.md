@@ -1,45 +1,47 @@
 # TCP/IPネットワーキング & パケットキャプチャ
 
-> 短縮版（90分）は太字のもののみ。
+### 本セミナーの目標
 
-1. [**はじめに**](./01_Preface.md)
-2. [**TCP/IP概要**](./02_Basics.md)
-	- **どうやってつながるの?**
-	- **OSI参照モデル**
-3. [**パケットキャプチャツール**](./03_Wireshark.md)
-	- **インストール**
-	- **休憩（リブート中）**
-	- **お試し**
-4. [Ethernet (+ARP)](./04_Ethernet-Arp.md)
-	- 仕様 & 参考文献
-	- 自機のMACアドレス	
-	- ARPテーブルの操作
-	- EthernetとARPプロトコル
-	- 特殊アドレス
-5. [IP (+ICMP)](./05_IP-ping.md)
-	- 仕様 & 参考文献
-	- 普通にpingを送る
-	- 大きなpingを送る
-	- フラグメント禁止
-	- 時間超過
-6. [TCP (+HTTP)](./06_Tcp-Http.md)
-	- 仕様 & 参考文献 ✓
-	- 使用中のポート番号を調べる
-	- TCP 3-wayハンドシェイク
-	- **HTTP**
-	- TCPコネクションの切断
-7. [UDP (+DNS)](./07_Udp-Dns.md)
-	- 仕様 & 参考文献
-	- DNS A & AAAAレコード要求
-	- DNSキャッシュの操作
+中級以上を目指すネットワークエンジニアを対象に、インターネットの基盤技術であるTCP/IPの構造と挙動を、パケットキャプチャツール（Wireshark）を用いたパケット解析を通じて具体的に学びます。
 
-## 参考書籍
+セミナーでは、各自のPCに[Wireshark](https://www.wireshark.org/ "LINK")をインストールし、実際に利用してもらいます。対応している環境はWindowsまたはMac OSです。
 
-- Douglas E.Comer: [TCP/IPによるネットワーク構築Vol.I―原理・プロトコル・アーキテクチャ― 第4版](https://www.kyoritsu-pub.co.jp/bookdetail/9784320120549), 共立出版（2002）.  
-TCP/IPの書籍を一冊だけというなら、間違いなくこれです。大部（688ページ）で記述がやや難しめですが、一生使えます。原著は2013年に[第6版](https://www.pearson.com/store/p/internetworking-with-tcp-ip-volume-one/P100000423562/9780136085300)が出ています。
 
-- 井上直也、村山公保、竹下隆史、荒井透 & 苅田幸雄: [マスタリングTCP/IP 入門編（第6版）](https://www.ohmsha.co.jp/book/9784274224478/), オーム社（2019）.  
-上記が難しいというのなら、これです。日本の高等教育機関でよく教科書として用いられています。
+### プログラム
 
-- W. Richard Stevens: [UNIXネットワークプログラミング〈Vol.1〉ネットワークAPI:ソケットとXTI](https://www.kinokuniya.co.jp/f/dsg-01-9784894712058), ピアソンエデュケーション（2000).  
-ネットワークプログラマ必携の書。殺人的に厚い（978ページ）ものの、一生ものです。講師も、全部読み切ってはいません。絶版らしいから中古を探してください。Vol. 2もあります。
+> 短縮版（90分）は📚のみ扱います。
+
+1. [TCP/IP概要](./01_Basics.md "INTERNAL")
+	- [どうやってつながるの？](./01_Basics.md#どうやってつながるの？ "INTERNAL") 📚
+	- [OSI参照モデル](./01_Basics.md#OSI参照モデル "INTERNAL")
+2. [パケットキャプチャツール](./02_Wireshark.md "INTERNAL") 📚
+	- [インストール](./02_Wireshark.md#インストール "INTERNAL") 📚
+	- [リブート中](./02_Wireshark.md#リブート中 "INTERNAL") 📚
+	- [お試し](./02_Wireshark.md#お試し "INTERNAL") 📚
+3. [EthernetとARP](./03_Ethernet-Arp.md "INTERNAL")
+	- [仕様・参考文献](./03_Ethernet-Arp.md#仕様・参考文献 "INTERNAL")
+	- [自機のMACアドレス](./03_Ethernet-Arp.md#自機のMACアドレス "INTERNAL")
+	- [ARPテーブルの操作](./03_Ethernet-Arp.md#ARPテーブルの操作 "INTERNAL")
+	- [EthernetとARPプロトコル](./03_Ethernet-Arp.md#EthernetとARPプロトコル "INTERNAL")
+	- [特殊アドレス](./03_Ethernet-Arp.md#特殊アドレス "INTERNAL")
+4. [IPとICMP](./04_IP-ping.md "INTERNAL")
+	- [仕様・参考文献](./04_IP-ping.md#仕様・参考文献 "INTERNAL")
+	- [普通にpingを送る](./04_IP-ping.md#普通にpingを送る "INTERNAL")
+	- [大きなpingを送る](./04_IP-ping.md#大きなpingを送る "INTERNAL")
+	- [フラグメント禁止](./04_IP-ping.md#フラグメント禁止 "INTERNAL")
+	- [時間超過](./04_IP-ping.md#時間超過 "INTERNAL")
+5. [TCPとHTTP](./05_Tcp-Http.md "INTERNAL")
+	- [仕様・参考文献](./05_Tcp-Http.md#仕様・参考文献 "INTERNAL")
+	- [使用中のポート番号を調べる](./05_Tcp-Http.md#使用中のポート番号を調べる "INTERNAL")
+	- [3Wayハンドシェイク](./05_Tcp-Http.md#3Wayハンドシェイク "INTERNAL")
+	- [HTTP](./05_Tcp-Http.md#HTTP "INTERNAL") 📚
+	- [TCPコネクションの切断](./06_Tcp-Http.md#TCPコネクションの切断 "INTERNAL")
+6. [UDPとDNS](./06_Udp-Dns.md "INTERNAL")
+	- [仕様・参考文献](./06_Udp-Dns.md#仕様・参考文献 "INTERNAL")
+	- [AおよびAAAAレコードの要求](./06_Udp-Dns.md#AおよびAAAAレコードの要求 "INTERNAL")
+	- [DNSキャッシュの操作](./06_Udp-Dns.md#DNSキャッシュの操作 "INTERNAL")
+
+
+### 質問
+
+質問はチャットウィンドウから適宜受け付けます。口頭で質問したいときは、単に「質問」や🙋と書き込んでください。切りのよいところで指名します。

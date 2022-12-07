@@ -1,4 +1,4 @@
-## 7. UDP
+## UDPとDNS
 
 本章ではDNS（Domain Name System）を通じて、UDPの挙動を観察します。
 
@@ -9,22 +9,24 @@ DNSは主として`www.cutt.co.jp`のようなドメイン名を対応するIP�
 システム系のサービスであるためにバイナリ志向のプロトコルですが、Wiresharkが解釈してくれるので、読むのに問題はありません。
 
 
-### 仕様 & 参考文献
+### 仕様・参考文献
 
 - UDP
-	- [IETF RFC 768](https://www.ietf.org/rfc/rfc768.txt) - TCPと比べていかにコンパクトでシンプルかは、長くなりがちな公式仕様がたった3ページしかないことからもわかります。	
-	- [Network Sorcery: UDP](http://www.networksorcery.com/enp/protocol/udp.htm) - セグメント構造と各種パラメータだけならこちら。
-	- [IANA Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.txt) - TCP/UDPウェルノウンポート番号の一覧。	
-	- [TechMAGAZINE: TCPとUDPの主な特徴6つ｜代表的なポート番号や使い分ける方法も紹介](https://www.fenet.jp/infla/column/network/tcpとudpの主な特徴6つ｜代表的なポート番号や使い分) - TCP/UDPの差異を解説。
+	- [IETF RFC 768](https://www.ietf.org/rfc/rfc768.txt "LINK") - TCPと比べていかにコンパクトでシンプルかは、長くなりがちな公式仕様がたった3ページしかないことからもわかります。	
+	- [ネットワークエンジニアとして：TCP/IP - UDP](https://www.infraexpert.com/study/tcpip12.html "LINK") - セグメント構造と各種パラメータだけならこちら。
+    - [IANA Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.txt "LINK") - TCP/UDPウェルノウンポート番号の一覧。
+	- [TechMAGAZINE: TCPとUDPの主な特徴6つ｜代表的なポート番号や使い分ける方法も紹介](https://www.fenet.jp/infla/column/network/tcpとudpの主な特徴6つ｜代表的なポート番号や使い分 "LINK") - TCP/UDPの差異を解説。
 - DNS
-	- [IETF RFC 1035](https://datatracker.ietf.org/doc/html/rfc1035) - 仕様です。
-	- [Network Sorcery: DNS](http://www.networksorcery.com/enp/protocol/dns.htm) - セグメント構造と各種パラメータだけならこちら。	
-	- [JPNIC インターネット10分講座：DNS](https://www.nic.ad.jp/ja/newsletter/No22/080.html) - ドメイン名解決のメカニズムの概説。JPNICは日本のインターネットを管理する組織ですので、信頼ある情報源です。
+	- [IETF RFC 1035](https://datatracker.ietf.org/doc/html/rfc1035 "LINK") - 仕様です。
+	- [@IT DNSパケットフォーマットと、DNSパケットの作り方](https://atmarkit.itmedia.co.jp/ait/articles/1601/29/news014.html "LINK") - DNSメッセージフォーマット
+	- [JPNIC インターネット10分講座：DNS](https://www.nic.ad.jp/ja/newsletter/No22/080.html "LINK") - ドメイン名解決のメカニズムの概説。JPNICは日本のインターネットを管理する組織ですので、信頼ある情報源です。
 - ツール
-    - [Microsoft Docs: nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) - Unixでも同名です。Unixにはほぼ同機能の`dig`もあります。
+    - [Microsoft Docs: nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup "LINK") - Unixでも同名です。Unixにはほぼ同機能の`dig`もあります。
+
+まずはUDPデータグラムとDNSメッセージのフォーマットを見てみましょう。
 
 
-### DNS A & AAAAレコード要求
+### AおよびAAAAレコードの要求
 
 Wiresharkのフィルタを`dns`または`udp.port == 53`に設定して以下を実行します。
 

@@ -1,23 +1,25 @@
-## 6. TCP
+## TCPとHTTP
 
 本章ではHTTP（Hypertext Transfer Protocol）を通じて、TCPの挙動を観察します。
 
 HTTPはハイパーテキスト（たいていはHMTL）を搬送するアプリケーション層（L7）のプロトコルです。信頼性のある通信路で搬送されることが想定されているのでトランスポート層（L4）のプロトコルにはTCPを使います。
 
 
-### 仕様 & 参考文献
+### 仕様・参考文献
 
 - TCP
-	- [IETF RFC 793](https://datatracker.ietf.org/doc/html/rfc793) - 仕様。
+	- [IETF RFC 9293](https://datatracker.ietf.org/doc/html/rfc9293 "LINK") - 仕様。つい最近、RFC 791が無効化されました！
 	- [Network Sorcery: TCP](http://www.networksorcery.com/enp/protocol/tcp.htm) - セグメント構造と各種パラメータだけならこちら。
-	- [IANA Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.txt) - TCP/UDPウェルノウンポート番号の一覧。	
-	- [ネットワークエンジニアとして ](https://www.infraexpert.com/study/tcpip9.html) - わかりやすい概要。
-	- [@Network TCPの制御（スリーウェイハンドシェイクの手順）](http://atnetwork.info/tcpip/tcpip101.html) - TCP 3-wayハンドシェイクの仕組み。
+	- [IANA Service Name and Transport Protocol Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.txt "LINK") - TCP/UDPウェルノウンポート番号の一覧。	
+	- [ネットワークエンジニアとして：TCP/IP - TCP three-way handshaking](https://www.infraexpert.com/study/tcpip9.html "LINK") - 3Wayハンドシェイクのわかりやすい概要。
+	- [@Network TCPの制御（スリーウェイハンドシェイクの手順）](http://atnetwork.info/tcpip/tcpip101.html "LINK") - TCP 3-wayハンドシェイクの仕組み。
 - HTTP/1.1
-	- [IETF RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616) - 仕様。本当はRFC 7230～7235によって無効化（旧式化）されたのですが、本筋は変わらないので、えらく細かいところを気にしないのであればこちらで充分です。
-    - [MDN HTTPレスポンスステータスコード](https://developer.mozilla.org/ja/docs/Web/HTTP/Status) - 「200 OK」や「404 Not Found」など、ご存じのHTTPレスポンスコードの一覧です。
+	- [IETF RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616 "LINK") - 仕様。本当はRFC 9110～9112によって無効化（旧式化）されたのですが、本筋は変わらないので、えらく細かいところを気にしないのであればこちらで充分です。
+    - [MDN HTTPレスポンスステータスコード](https://developer.mozilla.org/ja/docs/Web/HTTP/Status "LINK") - 「200 OK」や「404 Not Found」など、ご存じのHTTPレスポンスコードの一覧です。
 - ツール
-    - [Microsoft Docs: netstat](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/netstat) - Unixでも同名です。
+    - [Microsoft Docs: netstat](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/netstat "LINK") - Unixでも同名です。
+
+まずはTCPセグメントのフォーマットを見てみましょう。
 
 
 ### 使用中のポート番号を調べる
@@ -45,11 +47,11 @@ C:\temp> netstat -n
 - 49152～65535: 動的ポート。クライアント側のポート番号のように一時的（ephemeral）に用いるのに用いられます。
 
 
-### TCP 3-wayハンドシェイク
+### 3Wayハンドシェイク
 
 Wiresharkのフィルタを`http`または`tcp.port == 80`を指定し、ブラウザから`http://www.cutt.co.jp/about/index.html`にアクセスします。まっさらな状態での通信を観察したいので、ブラウザのキャッシュはクリアしておきます。
 
-#### TCP SYN
+#### SYN
 
 TCPコネクションを確立するクライアントは、サーバに対しTCP SYNパケットを送ります。
 
@@ -73,7 +75,7 @@ Transmission Control Protocol, Src Port: 54976, Dst Port: 80, Seq: 0, Len: 0
 - Flagsフィールド（仕様ではControl bits）から、このセグメントに制御的なタスクが課せられているかわかります。ここでは最初のコネクション確立のSYNビットが立っています。
 - TCPではセグメントの各バイトに番号を付けて、TCP Sequence Numberフィールドで管理しています（これで、どこか欠けたり重複したりしたらわかる）。最初の番号はなんでもよいのですが、たいていランダムにセットされます。ここでは2648756644です。2行ありますが、relative（相対）のほうはWiresharkのサービスです。
 
-#### TCP SYN/ACK
+#### SYN/ACK
 
 サーバ側は上記のSYNに確認応答（ACK）を送ると同時に、自分のSYNで自分側の送信データのほうのコネクションの確立を図ります。
 
@@ -96,7 +98,7 @@ Transmission Control Protocol, Src Port: 80, Dst Port: 54976, Seq: 0, Ack: 1, Le
 - SYN側のデータはSequence Numberフィールドです。ここでは、1870694100が用いられています。
 - ACK側のデータはAcknowledgment numberで、2648756645です。この値は先ほどのSYNのときより一つ多い値です。これで上記のTCP SYNは確認されました。
 
-#### TCP ACK
+#### ACK
 
 ```
 Transmission Control Protocol, Src Port: 54976, Dst Port: 80, Seq: 1, Ack: 1, Len: 0
@@ -119,6 +121,8 @@ Transmission Control Protocol, Src Port: 54976, Dst Port: 80, Seq: 1, Ack: 1, Le
 ### HTTP
 
 TCP 3-wayハンドシェイクが完了すれば、つぎはHTTPの出番です。
+
+> 最近のWebサーバの大半はHTTPS（ポート番号443）を用いており、ピュアにHTTSのものは少なくなっています。
 
 ```
 No.	Time		Source			SrcPort	Destination		DstPort	Proto	Length	Info

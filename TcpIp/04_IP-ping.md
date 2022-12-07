@@ -1,4 +1,4 @@
-## 5. IP
+## IPとICMP
 
 本章ではICMP（Internet Control Message Protocol: インターネット制御メッセージプロトコル）を通じて、IPの挙動を観察します。
 
@@ -9,23 +9,24 @@ ICMPパケット（メッセージ）はIPデータグラムのペイロード�
 IPは、書き込まれたデータがなんであるかを、IPヘッダにある1バイトのProtocolフィールドから判定します。`1`ならICMP、`6`ならTCP、`17`ならUDPです。
 
 
-### 仕様 & 参考文献
+### 仕様・参考文献
 
 - Ethernet
-	- [Wikipedia MTU（英語版）](https://en.wikipedia.org/wiki/Maximum_transmission_unit#MTUs_for_common_media) - メディア種別ごとのMTUサイズ。
+	- [Wikipedia MTU（英語版）](https://en.wikipedia.org/wiki/Maximum_transmission_unit#MTUs_for_common_media "LINK") - メディア種別ごとのMTUサイズ。
 - IP
-	- [IETF RFC 791](https://datatracker.ietf.org/doc/html/rfc791) - 仕様。
-	- [Network Sorcery: IP](http://www.networksorcery.com/enp/protocol/icmp.htm) - データグラム構造と各種パラメータだけならこちら。
-	- [@IT 第10回 IPパケットの構造とIPフラグメンテーション](https://atmarkit.itmedia.co.jp/ait/articles/0304/04/news001_3.html) - わかりやすい概要。
+	- [IETF RFC 791](https://datatracker.ietf.org/doc/html/rfc791 "LINK") - 仕様。
+	- [ネットワークエンジニアとして：TCP/IP - IP](https://www.infraexpert.com/study/tcpip1.html "LINK") - IPデータグラムのフォーマット。
+	- [@IT 第10回 IPパケットの構造とIPフラグメンテーション](https://atmarkit.itmedia.co.jp/ait/articles/0304/04/news001_3.html "LINK") - わかりやすい概要。
 - ICMP
-	- [IETF RFC 792](https://datatracker.ietf.org/doc/html/rfc792) - 仕様。
-	- [Network Sorcery: ICMP](http://www.networksorcery.com/enp/protocol/icmp.htm) - メッセージ構造と各種パラメータだけならこちら。ICMPエコー要求、宛先到達不能、時間超過などの各種のICMPメッセージの構造もここのリンクから辿れます。
-	- [ネットワークエンジニアとして ICMP](https://www.infraexpert.com/study/tcpip4.html) - わかりやすい概要。
-	- [@network: tracert/tracerouteの仕組み](http://atnetwork.info/tcpip/tcpip89.html) - tracerouteの原理
+	- [IETF RFC 792](https://datatracker.ietf.org/doc/html/rfc792 "LINK") - 仕様。
+    - [ネットワークエンジニアとして：TCP/IP - ICMP](https://www.infraexpert.com/study/tcpip4.html "LINK") - ICMPメッセージのフォーマット。  
+ 	- [@network: tracert/tracerouteの仕組み](http://atnetwork.info/tcpip/tcpip89.html "LINK") - tracerouteの原理
 - ツール
-    - [Microsoft Docs: ipconfig](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig) - Unixでは`ifconfig`です。
-    - [Microsoft Docs: ping](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ping) - Unixでもおなじコマンド名ですが、オプションが激しく異なるので混乱します。
-    - [Microsoft Docs: tracert](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/tracert) - Unixでは`traceroute`です。3文字くらいけちるなよ、ビル!!
+    - [Microsoft Docs: ipconfig](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig "LINK") - Unixでは`ifconfig`です。
+    - [Microsoft Docs: ping](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ping "LINK") - Unixでもおなじコマンド名ですが、オプションが激しく異なるので混乱します。
+    - [Microsoft Docs: tracert](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/tracert "LINK") - Unixでは`traceroute`です。3文字くらいけちるなよ、ビル!!
+
+まずはIPデータグラムとICMPメッセージのフォーマットを見てみましょう。
 
 
 ### 普通にpingを送る
@@ -82,7 +83,7 @@ Internet Control Message Protocol
 
 - 全長40バイトのうち、ICMPの共通ヘッダが4バイト、ICMPエコー要求のヘッダが4バイト、データ部分が32バイトです。
 - Typeフィールドが8であることから、このICMPメッセージがICMPエコー要求であることがわかります。
-- Sequence Numberフィールドは、送ったエコー要求と返信されるエコー応答を対応付けるためにあります。必ず指定しなければならないわけではないので、0（`0x0000`）のこともあります。BEとLEと二つのバリエーションで書かれているのは、[ビッグエンディアンとリトルエンディアン](https://rainbow-engine.com/little-endian-big-endian/)というバイト列の順序を変えて表記しているからです（Wiresharkのサービスで、ICMPの仕様にはありません）。
+- Sequence Numberフィールドは、送ったエコー要求と返信されるエコー応答を対応付けるためにあります。必ず指定しなければならないわけではないので、0（`0x0000`）のこともあります。BEとLEと二つのバリエーションで書かれているのは、[ビッグエンディアンとリトルエンディアン](https://rainbow-engine.com/little-endian-big-endian/ "LINK")というバイト列の順序を変えて表記しているからです（Wiresharkのサービスで、ICMPの仕様にはありません）。
 - データ部分はなんでもかまいません。サイズもお好みで決められます。
 
 #### ICMPエコー応答
