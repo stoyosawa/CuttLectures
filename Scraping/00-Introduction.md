@@ -37,5 +37,5 @@ pip install wordcloud
 $ python generate_wc.py https://www.cutt.co.jp/
 ```
 
-非常にシンプルなスクリプトなので、URLによっては思ったように動作しないかもしれません。
+非常にシンプルなスクリプトなので、URLによっては期待通りには動作しないかもしれません。
 
