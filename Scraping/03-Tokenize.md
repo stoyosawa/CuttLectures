@@ -25,7 +25,7 @@
 
 ### とりあえず試そう
 
-スクリプトは[`tokenize_texts.html`](./Codes/short_version/tokenize_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した単語のリストを表示します。
+スクリプトは[`tokenize_texts.py`](./Codes/short_version/tokenize_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した単語のリストを表示します。
 
 ```
 C:\temp>python tokenize_texts.py https://www.cutt.co.jp/

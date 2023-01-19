@@ -1,6 +1,6 @@
 ## WordCloudの生成
 
-最後です。単語頻度辞書`{'word1':p1, 'word2':p2, ..., 'wordN':pN}`からワードクラウドを生成するには、`wordcloud`パッケージを利用します。
+最後です。単語頻度辞書`{'word1':p1, 'word2':p2, ..., 'wordN':pN}`からワードクラウドを生成するには、[`wordcloud`](https://amueller.github.io/word_cloud/ "LINK")パッケージを利用します。
 
 
 ### とりあえず試そう（最初にやったけどもう1回）
