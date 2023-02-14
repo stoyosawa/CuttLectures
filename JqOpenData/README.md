@@ -75,13 +75,25 @@ Windowsでも`curl`は問題なく利用できます。しかし、`jq`は特殊
 
 `curl`はWindowsにもUnixにもたいてい付属していますが、なければ次のURLからZipファイルをダウンロードします。
 
-```https://curl.se/download.html```
+[`https://curl.se/download.html`](https://curl.se/download.html "LINK")
 
 `jq`のダウンロード先は次のURLです。バイナリ（LinuxならELF、Windowsならexe）がダウンロードされるので、そのまま使えます。
 
-```https://stedolan.github.io/jq/```
+[`https://stedolan.github.io/jq/`](https://stedolan.github.io/jq/ "LINK")
 
 
 ### 受講対象者
 
 オープンデータが使えないかと考えてはいるものの、始めあぐねている方。
+
+
+### 参考書籍
+
+- 豊沢聡: 『jqハンドブック NetOps/DevOps必携のJSONパーザ』, カットシステム（2021年7月）... 【
+  [amazon.co.jp](https://www.amazon.co.jp/dp/4877834915 "LINK") |
+  [honto](https://honto.jp/netstore/pd-book_31037910.html "LINK") |
+  [Yodobashi](https://www.yodobashi.com/product/100000009003450000/ "LINK") 
+】
+- 豊沢聡：『jqクックブック』, カットシステム（近日発売）
+
+<img src="https://www.cutt.co.jp/book/images/978-4-87783-491-3.png" width="200">
