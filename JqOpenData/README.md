@@ -1,14 +1,14 @@
-# オープンデータ＋JSON＋jqパーザ
+# オープンデータの活用～JSON＋`jq`パーザ
 
 ### 目的
 
 本セミナーでは、[オープンデータ](https://ja.wikipedia.org/wiki/オープンデータ "LINK")へのアクセスとその処理を説明します。オープンデータの中身は多様で、アクセス方法やデータフォーマットやその解析方法もあれこれありますが、ここでは次のものを対象とします。
 
-1. [REST APIによるアクセス](./01-Rest.md "INTERNAL")－REST（[Representational State Transfer](https://ja.wikipedia.org/wiki/Representational_State_Transfer "LINK")）は端的にはWeb/HTTPです。ツールには、コマンドラインから扱えるHTTPクライアントの[`curl`](https://curl.se/docs/manpage.html "LINK")を用います。
-2. [JSONデータ](./02-Json.md "INTERNAL")－JSON（[JavaScript Object Notation](https://www.rfc-editor.org/rfc/rfc8259 "LINK")）はRESTでの要求・応答によく用いられる、可読テキストで表現されたデータ構造です。
-3. [`jq`による処理](./03-Jq.md "INTERNAL")－[`jq`](https://stedolan.github.io/jq/manual/v1.6/ "LINK")はコマンドラインからJSONデータを処理する、（Unixで言うところの）`sed`や`awk`に似た文字列処理ツールです。
+1. [REST APIによるアクセス](./01-Rest.md "INTERNAL")－REST（[Representational State Transfer](https://ja.wikipedia.org/wiki/Representational_State_Transfer "LINK")）は端的にはWeb/HTTPです。ブラウザからでもアクセスできますが、ここではコマンドラインから扱えるHTTPクライアントの[`curl`](https://curl.se/docs/manpage.html "LINK")を用います。
+2. [JSONデータ](./02-Json.md "INTERNAL")－オープンデータのフォーマットにはCSVやExcelやPDFなどいろいろありますが、ここではJSONをターゲットにします。JSON（[JavaScript Object Notation](https://www.rfc-editor.org/rfc/rfc8259 "LINK")）はRESTでの要求・応答によく用いられる、可読テキストで表現されたデータ構造です。
+3. [`jq`による処理](./03-Jq.md "INTERNAL")－[`jq`](https://stedolan.github.io/jq/manual/v1.6/ "LINK")はコマンドラインからJSONデータを処理する、（Unixで言うところの）`sed`や`awk`に似た文字列処理ツールです。単純なJSON整形ツールとして使われるケースが多いのですが、実は、それよりも多様な機能が用意されています。
 
-`curl`や`jq`を使って、オープンデータの中身を手早くチェックする方法を学ぶことが目的です。言ってみれば、オープンデータを活用してアプリケーションを作成する一歩手前、既存のデータから何を造れるかを企画する段階で、考察の材料を集めるところです。
+本セミナーの目的は、`curl`や`jq`を使って、オープンデータの中身を手早くチェックする方法を学ぶところにあります。つまり、オープンデータを活用してアプリケーションを作成する一歩手前、既存のデータから何を造れるかを企画する段階で、考察の材料を集めるところです。
 
 
 ### ターゲット
@@ -50,7 +50,7 @@ $ curl -s https://api.data.metro.tokyo.lg.jp/v1/WifiAccessPoint | jq '.'
        ︙
 ```
 
-同様に、所定のデータを抜き出したり、整形したり、集計したりもできます。たとえば所在（上記の「設置地点 >住所 > 表記」の箇所）だけを抜き出せます。このとき、「東京都」が付いたものと付いていないものがあるので、あればこれを省きます。
+同様に、所定のデータを抜き出したり、整形したり、集計したりもできます。たとえば所在（上記の「設置地点 >住所 > 表記」の箇所）だけを抜き出せます。
 
 ```
 $ curl -s https://api.data.metro.tokyo.lg.jp/v1/WifiAccessPoint | \
@@ -69,6 +69,17 @@ $ curl -s https://api.data.metro.tokyo.lg.jp/v1/WifiAccessPoint | \
 Unixを想定しています。Windowsでは[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/ "LINK")の利用をお勧めします。
 
 Windowsでも`curl`は問題なく利用できます。しかし、`jq`は特殊文字のエスケープがややこしく、直接コマンドプロンプトから実行するのは面倒です。そこで、直書きではなくファイル経由で実行することになります。
+
+
+### インストール
+
+`curl`はWindowsにもUnixにもたいてい付属していますが、なければ次のURLからZipファイルをダウンロードします。
+
+```https://curl.se/download.html```
+
+`jq`のダウンロード先は次のURLです。バイナリ（LinuxならELF、Windowsならexe）がダウンロードされるので、そのまま使えます。
+
+```https://stedolan.github.io/jq/```
 
 
 ### 受講対象者
