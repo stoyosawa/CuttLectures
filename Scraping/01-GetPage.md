@@ -7,7 +7,7 @@
 
 ### とりあえず試そう
 
-スクリプトは[`get_pege.py`](./Codes/short_version/get_page.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLテキストを表示します。
+スクリプトは[`get_page.py`](./Codes/short_version/get_page.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLテキストを表示します。
 
 ```
 C:\temp>python get_page.py https://www.cutt.co.jp/

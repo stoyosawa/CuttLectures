@@ -82,9 +82,9 @@ console.log('Hello World');
 複数行のコードも一気に実行できます。[sum.js](./codes/sum.js)を試してください。
 
 > REPL環境で上記のように戻り値のない文を評価（実行）すると`undefined`と（やや怪しげに）表示されますが、これは正常な動作です。  
-`≫ console.log('hello world');                                 // 実行`  
-`> hello world                                                    // 文が実行した結果（文字列の出力）`  
-`← undefined                                                    // 文そのものの評価結果`  
+`≫ console.log('hello world');                         // 実行`  
+`> hello world                                          // 文が実行した結果（文字列の出力）`  
+`← undefined                                            // 文そのものの評価結果`  
 
 #### 開発環境その3 - オンライン開発ツール
 
