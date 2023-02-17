@@ -82,6 +82,11 @@ Windowsでも`curl`は問題なく利用できます。しかし、`jq`は特殊
 [`https://stedolan.github.io/jq/`](https://stedolan.github.io/jq/ "LINK")
 
 
+使ってからインストールするかは考えるという方は、次のオンライン環境から試してください。
+
+[`https://jqplay.org/`](https://jqplay.org/ "LINK")
+
+
 ### 受講対象者
 
 オープンデータが使えないかと考えてはいるものの、始めあぐねている方。
