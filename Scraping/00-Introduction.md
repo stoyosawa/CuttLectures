@@ -26,7 +26,7 @@ pip install wordcloud
 
 ### 本セミナーのスクリプトのダウンロード
 
-5本のスクリプトは[`./Codes/short_version/wc.zip`](./Codes/short_version/wc.zip "CODE")にZIPでまとめてあります。ダウンロードして、展開してください。
+5本のスクリプトは[`./Codes/wc.zip`](./Codes/wc.zip "CODE")にZIPでまとめてあります。ダウンロードして、展開してください。
 
 
 ### とりあえず試そう

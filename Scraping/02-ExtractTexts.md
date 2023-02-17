@@ -7,7 +7,7 @@ HTMLデータには、`<body></body>`などHTMLタグやJavaScriptコードが�
 
 ### とりあえず試そう
 
-スクリプトは[`extract_texts.html`](./Codes/short_version/extract_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出したテキスト文を表示します。
+スクリプトは[`extract_texts.html`](./Codes/extract_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出したテキスト文を表示します。
 
 ```
 C:\temp>python extract_texts.py https://www.cutt.co.jp/
@@ -126,7 +126,7 @@ Beautiful Soupのパッケージ名は（バージョン4なので）`bs4`です
 
 ### 次号へ続く
 
-[extract_texts.py](./Codes/short_version/extract_texts.py "INTERNAL")は、引数に指定したHTMLデータ（`str`）を取得する`extract_texts()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
+[`extract_texts.py`](./Codes/extract_texts.py "CODE")は、引数に指定したHTMLデータ（`str`）を取得する`extract_texts()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
 
 ```Python
 from extract_texts import extract_texts

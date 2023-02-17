@@ -25,7 +25,7 @@
 
 ### とりあえず試そう
 
-スクリプトは[`tokenize_texts.py`](./Codes/short_version/tokenize_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した単語のリストを表示します。
+スクリプトは[`tokenize_texts.py`](./Codes/tokenize_texts.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した単語のリストを表示します。
 
 ```
 C:\temp>python tokenize_texts.py https://www.cutt.co.jp/
@@ -171,7 +171,7 @@ tokenizeは、文を単語（形態素）単位に分解する処理です。
 
 ### 次号へ続く
 
-[tokenize_texts.py](./Codes/short_version/tokenize_texts.py "INTERNAL")は、引数に指定したテキスト文のリストから名詞単語を抽出する`tokenize_texts()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
+[`tokenize_texts.py`](./Codes/tokenize_texts.py "CODE")は、引数に指定したテキスト文のリストから名詞単語を抽出する`tokenize_texts()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
 
 ```Python
 from tokenize_texts import tokenize_texts

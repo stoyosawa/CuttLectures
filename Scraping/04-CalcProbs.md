@@ -7,7 +7,7 @@
 
 ### とりあえず試そう
 
-スクリプトは`calc_probs.py`です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した「単語: 出現頻度」の辞書を表示します。
+スクリプトは[`calc_probs.py`](./Codes/calc_probs.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLから抽出した「単語: 出現頻度」の辞書を表示します。
 
 ```
 C:\temp>python calc_probs.py https://www.cutt.co.jp/
@@ -82,7 +82,7 @@ prob = {key:tokens.count(key)/size for key in unique_tokens}
 
 ### 次号へ続く
 
-[calc_probs.py](./Codes/short_version/calc_probs.py "INTERNAL")は、引数に指定した単語リストから「単語: 出現頻度」の辞書を生成する`calc_prob()`関数と、それをテストするmain関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
+[`calc_probs.py`](./Codes/calc_probs.py "CODES")は、引数に指定した単語リストから「単語: 出現頻度」の辞書を生成する`calc_prob()`関数と、それをテストするmain関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
 
 ```Python
 from calc_probs import calc_probs

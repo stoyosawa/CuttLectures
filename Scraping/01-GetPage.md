@@ -7,7 +7,7 @@
 
 ### とりあえず試そう
 
-スクリプトは[`get_page.py`](./Codes/short_version/get_page.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLテキストを表示します。
+スクリプトは[`get_page.py`](./Codes/get_page.py "CODE")です。次のように、コマンドラインからURLを指定して実行すれば、標準出力にHTMLテキストを表示します。
 
 ```
 C:\temp>python get_page.py https://www.cutt.co.jp/
@@ -87,7 +87,7 @@ HTTPサーバが返すHTMLデータ本体（ボディ）は`requests.Response`�
 
 ### 次号へ続く
 
-[get_page.py](./Codes/short_version/get_page.py "INTERNAL")は、引数に指定したURLのHTMLデータを取得する`get_page()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
+[`get_page.py`](./Codes/get_page.py "CODE")は、引数に指定したURLのHTMLデータを取得する`get_page()`関数と、それをテストする`main`関数で構成されています。以降でこの関数を利用するには、次のようにインポートします。
 
 ```Python
 from get_page import get_page

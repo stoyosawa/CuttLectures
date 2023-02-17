@@ -5,7 +5,7 @@
 
 ### とりあえず試そう（最初にやったけどもう1回）
 
-スクリプトは[generate_wc.py](./Codes/short_version/generate_wc.py "INTERNAL")です。コマンドラインからURLを指定して実行すればら、ワードクラウド画像を`img.png`として保存します。
+スクリプトは[`generate_wc.py`](./Codes/generate_wc.py "CODES")です。コマンドラインからURLを指定して実行すればら、ワードクラウド画像を`img.png`として保存します。
 
 ```
 C:\temp>python generate_wc.py https://www.cutt.co.jp/
@@ -77,6 +77,6 @@ Windowsでは、`C:\Windows\Fonts`に収容されている、拡張子が`*.ttf`
 
 ### まとめ
 
-以上をスクリプトファイルにまとめたものは、[generate_wc.py](./Codes/short_version/generate_wc.py "INTERNAL")に収容しました。
+以上をスクリプトファイルにまとめたものは、[`generate_wc.py`](./Codes/generate_wc.py "CODE")に収容しました。
 
 コマンドプロンプトから（`main`から）実行するなら、引数にURLを指定します。`main`はこれまでの関数の順に呼び出すことで単語頻度を取得し、ワードクラウド画像を保存します。
