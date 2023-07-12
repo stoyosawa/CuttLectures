@@ -45,7 +45,7 @@ WordCloudを生成するオブジェクトを[`wordcloud.WordCloud`](https://amu
 
 `width`と`height`は生成する画像の横と縦のサイズ（ピクセル数）で、デフォルトでは400×200です。
 
-`font_path`は使用するフォントファイルへのパスです。フォントはOTF（OpenType Font）またはTTF（TrueType Font）でなければなりません。Linuxで実行するときはデフォルトが用意されていますが、その他では明示的に指定しなければなりません。
+`font_path`は使用するフォントファイルへのパスです。フォントはOTF（OpenType Font）またはTTF（TrueType Font）でなければなりません。デフォルトフォントもありますが、英文字用なので、日本語を対象とするときは明示的に指定しなければなりません。
 
 Windowsでは、`C:\Windows\Fonts`に収容されている、拡張子が`*.ttf`か`*.ttc`（TrueType Collection）のものなら何でも構いません。ただし、単語が日本語ならメイリオやMSゴシックなどの日本語フォントを指定しなければなりません。
 

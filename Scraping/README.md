@@ -6,10 +6,14 @@
 
 <img src="./Images/www_cutt_co_jp.png" width="400">  
 
-これを[ワードクラウド](https://ja.wikipedia.org/wiki/タグクラウド "LINK")（word cloud）と言います。
+これを[ワードクラウド](https://ja.wikipedia.org/wiki/タグクラウド "LINK")（word cloud）あるいはタグクラウド（tag cloud）と言います。
+
+内容は、『[Webスクレイピング Pythonによるインターネット情報活用術](https://www.cutt.co.jp/book/978-4-87783-541-5.html)』（2023年8月、280ページ）の第4章で紹介されているのものです。
 
 
 ### 目次
+
+セミナーの時間は90分です。
 
 - [はじめに](./00-Introduction.md "INTERNAL")
 - [ページの取得](./01-GetPage.md "INTERNAL")

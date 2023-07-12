@@ -50,7 +50,7 @@ C:\temp>python get_page.py https://www.cutt.co.jp/
 
 ### 文字化け対策
 
-`requests`が文字コードを検出できないときのため、UTF-8を強制しておきます（詳細は割愛）。
+`requests`が文字コードを検出できないときのため、UTF-8を強制しておきます。
 
 ```Python
 >>> response.encoding = 'utf-8'

@@ -190,13 +190,13 @@ Successfully installed cycler-0.11.0 fonttools-4.33.3 kiwisolver-1.4.3 matplotli
 C:\temp>pip list
 Package            Version
 ------------------ -----------
-beautifulsoup4     4.11.1
+beautifulsoup4     4.11.1                                # Beautiful Soup Version 4
 certifi            2022.6.15
 charset-normalizer 2.0.12
 cycler             0.11.0
 fonttools          4.33.3
 idna               3.3
-Janome             0.4.2
+Janome             0.4.2                                 # Janome
 kiwisolver         1.4.3
 matplotlib         3.5.2
 numpy              1.23.0
@@ -205,10 +205,10 @@ Pillow             9.1.1
 pip                22.1.2
 pyparsing          3.0.9
 python-dateutil    2.8.2
-requests           2.28.0
+requests           2.28.0                                # Requests
 setuptools         58.1.0
 six                1.16.0
 soupsieve          2.3.2.post1
 urllib3            1.26.9
-wordcloud          1.8.2.2
+wordcloud          1.8.2.2                               # WordCloud
 ```
