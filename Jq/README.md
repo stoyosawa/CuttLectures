@@ -1,8 +1,8 @@
-<img src="https://stedolan.github.io/jq/jq.png" width="200">
+<img src="https://jqlang.github.io/jq/jq.png" width="200">
 
 ### 目的
 
-本セミナーでは、[`jq`](https://stedolan.github.io/jq/)を用いたJSONテキスト解析を説明します。最も簡単なものなら`.`だけ、難しいものなら次のようなものくらいをカバーしたいと考えています。
+本セミナーでは、[`jq`](https://jqlang.github.io/jq/)を用いたJSONテキスト解析を説明します。最も簡単なものなら`.`だけ、難しいものなら次のようなものくらいをカバーしたいと考えています。
 
 ```
 ($value | ascii_downcase) as $value |
@@ -21,7 +21,7 @@ del(.name)
 
 ### 環境とツール
 
-`jq`は依存関係のない単一実行形式ファイルなので、設定せずとも[ダウンロード](https://stedolan.github.io/jq/download/)するだけで利用できます。最新版（2018年11月）のバージョンは1.6です。必須ではありませんが、あらかじめ自機にインストールしておくと、話を聞きながら試すことができて便利です。
+`jq`は依存関係のない単一実行形式ファイルなので、設定せずとも[ダウンロード](https://jqlang.github.io/jq/download/)するだけで利用できます。最新版（2018年11月）のバージョンは1.6です。必須ではありませんが、あらかじめ自機にインストールしておくと、話を聞きながら試すことができて便利です。
 
 Linix、OS X、Windows、FreeBSD、Solarisで利用可能です。ただし、コマンドプロンプトだと特殊文字の記述（エスケープ）が複雑になりがちなので、[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/)をお勧めします。
 
