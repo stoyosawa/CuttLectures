@@ -94,11 +94,15 @@ Windowsでも`curl`は問題なく利用できます。しかし、`jq`は特殊
 
 ### 参考書籍
 
-- 豊沢聡: 『jqハンドブック NetOps/DevOps必携のJSONパーザ』, カットシステム（2021年7月）... 【
+- 豊沢聡: 『[jqハンドブック NetOps/DevOps必携のJSONパーザ](https://www.cutt.co.jp/book/978-4-87783-491-3.html)』, カットシステム（2021年7月）... 【
   [amazon.co.jp](https://www.amazon.co.jp/dp/4877834915 "LINK") |
   [honto](https://honto.jp/netstore/pd-book_31037910.html "LINK") |
   [Yodobashi](https://www.yodobashi.com/product/100000009003450000/ "LINK") 
 】
-- 豊沢聡：『jqクックブック』, カットシステム（近日発売）
+- 豊沢聡：『[jqクックブック RESTユーザ NetOps、DevOpsのためのJSON解析レシピ](https://www.cutt.co.jp/book/978-4-87783-508-8.html "LINK")』, カットシステム（2023年5月）... 【
+  [amazon.co.jp](https://www.amazon.co.jp/dp/4877835083" "LINK") |
+  [honto](https://honto.jp/netstore/pd-book_32427461.html "LINK") |
+  [Yodobashi](https://www.yodobashi.com/product/100000009003710680/ "LINK") 
+】
 
-<img src="https://www.cutt.co.jp/book/images/978-4-87783-491-3.png" width="200">
+<img src="https://www.cutt.co.jp/book/images/978-4-87783-491-3.png" width="200"> <img src="https://www.cutt.co.jp/book/images/978-4-87783-508-8.png" width="200">
