@@ -4,7 +4,8 @@
 
 - [TCP/IPネットワーキング](./TcpIp/README.md)
 - [jqによるJSON処理](./Jq/README.md)
-- [オープンデータの活用～JSON＋`jq`パーザ](./OpenData-Jq/README.md)
+- [オープンデータの活用～JSON＋`jq`パーザ](./OpenData-Jq/README.md)【90分版】
+
 - [Webスクレイピング](./Scraping/README.md)
 - [Python PIL/Pillow](./Pillow/README.md)
 
