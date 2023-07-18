@@ -2,16 +2,16 @@
 
 ### 目的
 
-本セミナーでは、[オープンデータ](https://ja.wikipedia.org/wiki/オープンデータ "LINK")へのアクセスとその処理を説明します。オープンデータの中身は多様で、アクセス方法やデータフォーマットにいろいろありますが、ここでは例題として次のものを対象とします。
+本ワークショップでは、[東京都 オープンデータカタログサイト](https://portal.data.metro.tokyo.lg.jp/)掲載の[オープンデータ](https://ja.wikipedia.org/wiki/オープンデータ)から地理情報（対象の緯度経度）を取得し、これを[Python Plotly](https://plotly.com/python/)を用いて地図上にマーキングします。
 
-- アクセス方法はストレートなHTTPS（Webと同じなので、データはブラウザからも閲覧可）。
-- データ形式は[GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON "LINK")の地理情報。GeoJSONは経緯度などの位置情報を収容することを目的に定義されたJSONフォーマットです。
-- データソースは[東京都 オープンデータカタログサイト](https://portal.data.metro.tokyo.lg.jp/ "LINK")掲載のもの。現在41セットあります。
-- 抽出結果は[Python Plotly](https://plotly.com/python/ "LINK")で地図に示します。
+ワークショップでは、まず例を挙げながらデータ取得、解析、地図へのマーキングの方法を説明します。そのあと、受講者には好みの東京都GeoJSONデータを選んで、地図を作成してもらいます。
 
-サンプルは[『Webスクレイピング～Pythonによるインターネット情報活用術』](https://github.com/stoyosawa/ScrapingBook-public "LINK")（2023年8月）の［出力例］の第11、12章から見ることができます。
+現在、東京都のデータセットには地理情報を収容した[GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON)フォーマットのデータセットが41あります（提供元は港区、品川区、目黒区くらいだけですが）。
 
-> JSON形式のオープンデータを`jq`を使ってコマンドラインでカジュアルに確認したい方は、[オープンデータの活用～JSON + jqパーザ](../OpenData-Jq "LINK")を参照してください。
+出力結果のサンプルは、書籍[『Webスクレイピング～Pythonによるインターネット情報活用術』](https://github.com/stoyosawa/ScrapingBook-public)（2023年8月）用に公開されている［出力例］の第11、12章から見ることができます。
+
+> JSON形式のオープンデータを`jq`を使ってコマンドラインでカジュアルに確認したい方は、[オープンデータの活用～JSON + jqパーザ](../OpenData-Jq)を参照してください。
+
 
 
 ### 受講対象者
@@ -19,19 +19,21 @@
 位置情報のオープンデータで何かできないかと考えている方。
 
 
-### 実習環境
+### 前提
 
-Pythonはマルチプラットフォームなので、環境は問いません。講師は[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/ "LINK")を使っています。
+Pythonの基本、たとえば基本データ型、ループ、関数などは理解しているとして話を進めます。
+
+内包表記（`[x**2 for x in range(10)]`の類）などちょっと凝った言語仕様やあまり使わない標準ライブラリは、必要に応じてその都度説明します。
 
 
-### インストール
+### 使用するライブラリ
 
-まずはPythonです。[python.org](https://www.python.org/ "LINK")のメインページから実行形式のインストーラがダウンロードできるので、実行・インストールします。
+本ワークショップでは、次の2つの外部のパッケージを利用します。
 
-<!-- 1085 x 415 -->
-<img src="Images/python_main.png" width="600">
+1. Webアクセス用の[Requests](https://requests.readthedocs.io/en/latest/)。
+2. グラフ描画の[Plotly Express](https://plotly.com/python/)。
 
-外部ライブラリをPIPからインストールします。使用するのは、①Webアクセス用の[Requests](https://requests.readthedocs.io/en/latest/ "LINK")、②グラフ描画の[Plotly](https://plotly.com/python/ "LINK")です。
+自分の環境に用意がなければ、以下の要領でインストールしてください。
 
 ```
 python -m pip install -U pip
@@ -39,9 +41,27 @@ pip install requests
 pip install plotly
 ```
 
+> PandasあるいはGeoPandasを使った方が楽なこともありますが、ここでは通常の操作でデータを整形します。
+
+### 実習環境
+
+Pythonが実行可能ならなんでもかまいません。講師は[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/)を利用します。
+
+```Python
+$ python
+Python 3.8.5 (default, Jul 28 2020, 12:59:40)
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = 'hello world'
+>>> x
+'hello world'
+```
+
+オンライン環境でもかまいませんが、前記の2つの外部パッケージが利用可能で、生成するHTMLをダウンロードあるいは表示できなければなりません。たとえば、[Google Colab](https://colab.google/)なら問題なく実行できます。
+
 
 ### 参考書籍
 
-- 豊沢聡: 『[Webスクレイピング～Pythonによるインターネット情報活用術](https://www.cutt.co.jp/book/978-4-87783-541-5.html "LINK")』, カットシステム（2021年8月）
+- 豊沢聡: 『[Webスクレイピング～Pythonによるインターネット情報活用術](https://www.cutt.co.jp/book/978-4-87783-541-5.html)』, カットシステム（2021年8月）
 
 <img src="https://www.cutt.co.jp/book/images/978-4-87783-541-5.png" width="200">
