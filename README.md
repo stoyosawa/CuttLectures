@@ -2,7 +2,7 @@
 
 🇯🇵 In Japanese
 
-[カットシステム オンラインセミナー 先端技術 Academy](https://www.cutt.co.jp/lectures/)の資料です。
+[カットシステム オンラインセミナー 先端技術 Academy](https://seminar.cutt.co.jp)の資料です。
 
 - [TCP/IPネットワーキング](./TcpIp/README.md)【お試し版、フルバージョン】
 - [jqによるJSON処理](./Jq/README.md)【フリーフォーマット】
@@ -15,10 +15,11 @@
 
 #### FYI: Course titles in English
 
+[Cutt System + Mirai Design: Advanced Technology Academy Online Seminar Series](https://seminar.cutt.co.jp/)
+
 - TCP/IP Networking Fundamentals - IP, TCP, HTTP (text based), DNS (binary based), and Wireshark packet capturing.
 - `jq` JSON Processing
 - Utilising Open Data - JSON + `jq`
 - Utilising Open Data - GeoJSON + Pytho Plotly
 - Web Scraping using Python  
-- Image Processing using Python Pillow
-- 
+- Image Processing using Python Pillow 
