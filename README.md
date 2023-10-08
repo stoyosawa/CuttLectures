@@ -17,7 +17,7 @@
 
 [Cutt System + Mirai Design: Advanced Technology Academy Online Seminar Series](https://seminar.cutt.co.jp/)
 
-- TCP/IP Networking Fundamentals - IP, TCP, HTTP (text based), DNS (binary based), and Wireshark packet capturing.
+- TCP/IP Networking Fundamentals - ARP, IP, ICMP, TCP, HTTP, UDP, DNS, and Wireshark packet capturing.
 - `jq` JSON Processing
 - Utilising Open Data - JSON + `jq`
 - Utilising Open Data - GeoJSON + Python Plotly
