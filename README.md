@@ -20,6 +20,6 @@
 - TCP/IP Networking Fundamentals - IP, TCP, HTTP (text based), DNS (binary based), and Wireshark packet capturing.
 - `jq` JSON Processing
 - Utilising Open Data - JSON + `jq`
-- Utilising Open Data - GeoJSON + Pytho Plotly
+- Utilising Open Data - GeoJSON + Python Plotly
 - Web Scraping using Python  
 - Image Processing using Python Pillow 
