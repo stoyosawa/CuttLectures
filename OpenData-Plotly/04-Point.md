@@ -1,6 +1,15 @@
 ## GeoJSON Pointデータのプロット
 
-Plotly Expressの`px.scatter_mapbox()`を使って、地図に`Point`情報をマーキングします。例題は前節でダウンロードした「港区の公共施設情報」の[「区役所・総合支所」](https://opendata.city.minato.tokyo.jp/dataset/74c06ebb-47dd-4fe1-8ba7-a5be60d2a448/resource/f1a1056b-a00e-4c12-8a78-288e0eee7ba0/download/minatokushisetsujoho_kuyakusyo.json)です。データはすでに`geo_info`にまとめられているとします。
+地理情報（緯度と経度）の位置を地図にプロットするには、[Plotly](https://plotly.com/python/)を使います。詳細は次のURLから確認できます。
+
+```https://plotly.com/python/```
+
+<!-- 1280 x 244 -->
+<img src="Images/Plotly.png" width="800">
+
+使用するのは、Plotlyに複数あるグラフィックライブラリのうちのExpressです。地図に点位置を描画するには[`px.scatter_mapbox()`](https://plotly.com/python-api-reference/generated/plotly.express.scatter_mapbox.html)メソッドを使います。
+
+例題は前節でダウンロードした「港区の公共施設情報」の[「区役所・総合支所」](https://opendata.city.minato.tokyo.jp/dataset/74c06ebb-47dd-4fe1-8ba7-a5be60d2a448/resource/f1a1056b-a00e-4c12-8a78-288e0eee7ba0/download/minatokushisetsujoho_kuyakusyo.json)です。データはすでに`geo_info`にまとめられているとします。
 
 
 ```Python
@@ -16,7 +25,7 @@ Plotly Expressの`px.scatter_mapbox()`を使って、地図に`Point`情報を�
 ]
 ```
 
-まず、Plotly Expressをインポートします。関連に従って、`px`と別名を付けるとよいでしょう。
+まず、Plotly Expressをインポートします。関連に従って、`px`と別名を付けます。
 
 ```Python
 import plotly.express as px
@@ -67,3 +76,5 @@ fig.write_html('Minatoku_Councils.html')
 ```
 
 HTMLファイルはそのまま開けます。中身はJaVaScriptです。
+
+前章と組み合せて1本のスクリプトにしたものは、本Githubの[`Codes/points.py`](./Codes/points.py)にあります。

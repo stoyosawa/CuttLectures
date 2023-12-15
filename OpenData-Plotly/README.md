@@ -1,17 +1,20 @@
-# オープンデータの活用～GeoJSON + Python Plotly
+# オープンデータの活用～Python Plotly
 
 ### 目的
 
-本ワークショップでは、[東京都 オープンデータカタログサイト](https://portal.data.metro.tokyo.lg.jp/)掲載の[オープンデータ](https://ja.wikipedia.org/wiki/オープンデータ)から地理情報（対象の緯度経度）を取得し、これを[Python Plotly](https://plotly.com/python/)を用いて地図上にマーキングします。
+本セミナーでは、[オープンデータ](https://ja.wikipedia.org/wiki/オープンデータ)から地理情報（対象の緯度経度）を取得し、これを[Python Plotly](https://plotly.com/python/)を用いて地図上にマーキングします。次の例は、東京都内のWiFiスポット位置データから生成した地図です。
 
-ワークショップでは、まず例を挙げながらデータ取得、解析、地図へのマーキングの方法を説明します。そのあと、受講者には好みの東京都GeoJSONデータを選んで、地図を作成してもらいます。
+<!-- 1034x779。「Webスクレイピング」本の第11章より。-->
+<img src="Images/MapStyle_Watercolor.png" width="500">
 
-現在、東京都のデータセットには地理情報を収容した[GeoJSON](https://ja.wikipedia.org/wiki/GeoJSON)フォーマットのデータセットが41あります（提供元は港区、品川区、目黒区くらいだけですが）。
+◆お試し版セミナー（90分）ではデータ取得、解析、地図へのマーキングの方法を説明します。データ形式は、GeoJSONの`Point`タイプ形式だけを扱います。
 
-出力結果のサンプルは、書籍[『Webスクレイピング～Pythonによるインターネット情報活用術』](https://github.com/stoyosawa/ScrapingBook-public)（2023年8月）用に公開されている［出力例］の第11、12章から見ることができます。
+◆ワークショップ（＋2時間）では続いてGeoJSONの`LineString`と`Polygon`を説明してから、好みの東京都GeoJSONデータを地図を作成してもらいます。
 
-> JSON形式のオープンデータを`jq`を使ってコマンドラインでカジュアルに確認したい方は、[オープンデータの活用～JSON + jqパーザ](../OpenData-Jq)を参照してください。
 
+### 対象データ
+
+[東京都 オープンデータカタログサイト](https://portal.data.metro.tokyo.lg.jp/)に掲載されている約6000件のデータのうち、地理情報（GeoJSONデータ）を収容した41件のデータセットを用います。
 
 
 ### 受講対象者
@@ -33,15 +36,17 @@ Pythonの基本、たとえば基本データ型、ループ、関数などは�
 1. Webアクセス用の[Requests](https://requests.readthedocs.io/en/latest/)。
 2. グラフ描画の[Plotly Express](https://plotly.com/python/)。
 
-自分の環境に用意がなければ、以下の要領でインストールしてください。
+用意がなければ、以下の要領でインストールしてください。
 
 ```
 python -m pip install -U pip
 pip install requests
 pip install plotly
+pip install pandas                          # Plotlyに必要
 ```
 
 > PandasあるいはGeoPandasを使った方が楽なこともありますが、ここでは通常の操作でデータを整形します。
+
 
 ### 実習環境
 
@@ -60,8 +65,14 @@ Type "help", "copyright", "credits" or "license" for more information.
 オンライン環境でもかまいませんが、前記の2つの外部パッケージが利用可能で、生成するHTMLをダウンロードあるいは表示できなければなりません。たとえば、[Google Colab](https://colab.google/)なら問題なく実行できます。
 
 
+### 類似のセミナー
+
+- 『[オープンデータの活用～JSON＋jqパーザ](../OpenData-Jq)』では、JSONデータ形式のオープンデータを対象に、コマンドラインからカジュアルにデータの中身をチェックする方法を示します。
+- 『[Webスクレイピング～Python＋Janome＋Worldcloud](./Scraping/README.md)』では、インターネット上のHTMLページを対象に、PythonとWordcloudを使って、ページ中の単語を抽出したワードクラウドを作成します。
+
+
 ### 参考書籍
 
-- 豊沢聡: 『[Webスクレイピング～Pythonによるインターネット情報活用術](https://www.cutt.co.jp/book/978-4-87783-541-5.html)』, カットシステム（2021年8月）
+- 豊沢聡: 『[Webスクレイピング～Pythonによるインターネット情報活用術](https://www.cutt.co.jp/book/978-4-87783-541-5.html)』, カットシステム（2023年8月）。
 
 <img src="https://www.cutt.co.jp/book/images/978-4-87783-541-5.png" width="200">

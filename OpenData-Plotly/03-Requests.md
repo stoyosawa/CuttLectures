@@ -1,12 +1,20 @@
-## GeoJSONデータのダウンロードと解析
+## データのダウンロードと解析
 
 以下、次にURLを示す「港区の公共施設情報」の「区役所・総合支所」を例題に、GeoJSONデータのダウンロードと解析方法を示します。
 
 ```Python
-url = 'https://opendata.city.minato.tokyo.jp/dataset/74c06ebb-47dd-4fe1-8ba7-a5be60d2a448/resource/f1a1056b-a00e-4c12-8a78-288e0eee7ba0/download/minatokushisetsujoho_kuyakusyo.json'
+url = 'https://opendata.city.minato.tokyo.jp/dataset/74c06ebb-47dd-4fe1-8ba7-a5be60d2a448/resource/' +
+    'f1a1056b-a00e-4c12-8a78-288e0eee7ba0/download/minatokushisetsujoho_kuyakusyo.json'
 ```
 
-ブラウザからでも閲覧できますが、プログラム的に扱うなら、Requestsパッケージを使います。
+データはブラウザからでも閲覧できますが、Pythonプログラムからアクセスするなら、[Requests](https://requests.readthedocs.io/en/latest/)パッケージを使います。詳細は、次のURLから調べられます。
+
+```https://requests.readthedocs.io/en/latest/```
+
+<!-- 1280x326 -->
+<img src="Images/Requests.png" width="800">
+
+使いかたは簡単で、次の2行を書くだけでGeoJSONデータが取得できます。
 
 ```Python
 import requests
