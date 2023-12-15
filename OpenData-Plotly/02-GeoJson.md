@@ -1,6 +1,11 @@
 ## GeoJSON
 
-おおまかなところは、[Wikipediaの記事](https://ja.wikipedia.org/wiki/GeoJSON)でわかります。と言うか、データを利用するだけなら細かいことは気にしなくてもかまいません。位置（緯度経度）は、`features`配列要素の`geometry`プロパティの`coordinates`属性に収容されていることだけわかっていれば大丈夫です。
+GeoJSONは非公式のワーキンググループが開発、管理している地理情報のJSON表現です（グループは公式でなくとも、仕様のRFC 7946は公式です）。サイトもあるにはありますが、たいした情報は出ていません。
+
+<!-- 1280x327 -->
+<img src="Images/GeoJson.png" width="800">
+
+仕様のおおまかなところは、[Wikipediaの記事](https://ja.wikipedia.org/wiki/GeoJSON)でわかります。と言うか、データを利用するだけなら細かいことは気にしなくてもかまいません。位置（緯度経度）は、`features`配列要素の`geometry`プロパティの`coordinates`属性に収容されていることだけわかっていれば大丈夫です。
 
 ```json
 {
