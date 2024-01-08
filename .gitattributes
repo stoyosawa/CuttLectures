@@ -1,0 +1,4 @@
+# リポジトリのセッティング
+
+# package.json の類は LF 終端にする（オリジナルのまま）
+package*.json text eol=lf
