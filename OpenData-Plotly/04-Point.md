@@ -57,8 +57,8 @@ fig = px.scatter_mapbox(
 
 ```Python
 fig.update_layout(
-	margin={"r": 0, "t": 40, "l": 0, "b": 0},
-	title_text="港区区役所"
+    margin={"r": 0, "t": 40, "l": 0, "b": 0},
+    title_text="港区区役所"
 )
 ```
 
@@ -75,6 +75,6 @@ fig.show()
 fig.write_html('Minatoku_Councils.html')
 ```
 
-HTMLファイルはそのまま開けます。中身はJaVaScriptです。
+保存したHTMLファイルはそのまま開けます。中身はJavaScriptです。
 
-前章と組み合せて1本のスクリプトにしたものは、本Githubの[`Codes/points.py`](./Codes/points.py)にあります。
+前章と組み合せて1本のスクリプトにしたものは、本Githubの[`Codes/points.py`](./Codes/points.py)にあります。出力結果は`Samples/geo_points.html`です（大きいので、多分、Githubではそのまま表示できない）。
