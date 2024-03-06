@@ -1,4 +1,4 @@
-# NoSQLデータベース入門～MongoDB Atlas
+# NoSQLデータベース入門～MongoDB Atlas＋Node.js/Mongoose
 
 ### 目的
 

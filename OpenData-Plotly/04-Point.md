@@ -35,10 +35,10 @@ import plotly.express as px
 
 ```Python
 fig = px.scatter_mapbox(
-	data_frame = geo_info,
-	lat = '緯度',
-	lon = '経度',
-	hover_name = '施設名',
+    data_frame = geo_info,
+    lat = '緯度',
+    lon = '経度',
+    hover_name = '施設名',
     center = {'lat':35.65915518488515, 'lon':139.74528644617095},   # 東京タワー,
     zoom = 14,
     mapbox_style='open-street-map',

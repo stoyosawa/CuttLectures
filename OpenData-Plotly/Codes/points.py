@@ -59,5 +59,5 @@ if __name__ == '__main__':
     json_data = get_page(url)
     geo_info = extract_locations(json_data)
     fig = generate_map(geo_info)
-    fig.show()
-    # fig.write_html('json_geo.html')
+    # fig.show()
+    fig.write_html('json_geo.html')

@@ -1,6 +1,6 @@
 ## GeoJSON
 
-GeoJSONは非公式のワーキンググループが開発、管理している地理情報のJSON表現です（グループは公式でなくとも、仕様のRFC 7946は公式です）。サイトもあるにはありますが、たいした情報は出ていません。
+GeoJSONは地理情報のJSON表現で、仕様は[RFC 7946](https://www.rfc-editor.org/info/rfc7946)で定義されています。[サイト](https://geojson.org/)もあるにはありますが、たいした情報は出ていません。
 
 <!-- 1280x327 -->
 <img src="Images/GeoJson.png" width="800">
@@ -30,7 +30,7 @@ GeoJSONは非公式のワーキンググループが開発、管理している�
         "URL": "<a href='https://www.city.minato.tokyo.jp/ ... 中略 ... /01.html</a>"
       }
     },
-    ...
+    ︙
   ]
 }
 ```
@@ -41,7 +41,7 @@ GeoJSONは非公式のワーキンググループが開発、管理している�
 
 > 他にも`MultiPoint`、`MultiLineString`、`MultiPolygon`のタイプがあります。詳細はRFCを参照してください。
 
-GeoJSONのおおもとであるJSON（JavaScript Object Notation）ですが、Pythonから利用するときは次の対応関係を把握していればおおむね問題はありません。
+GeoJSONのおおもとであるJSON（JavaScript Object Notation）ですが、次の対応関係を把握していれば、Pythonから問題なく利用できます。
 
 <table border="0">
  <tr><th colspan="2">JSON</th> <th colspan="2">Python</th></tr>

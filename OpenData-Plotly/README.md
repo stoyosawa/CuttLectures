@@ -7,7 +7,7 @@
 <!-- 1034x779。「Webスクレイピング」本の第11章より。-->
 <img src="Images/MapStyle_Watercolor.png" width="500">
 
-◆お試し版セミナー（90分）ではデータ取得、解析、地図へのマーキングの方法を説明します。データ形式は、GeoJSONの`Point`タイプ形式だけを扱います。
+◆お試し版セミナー（90分）ではデータ取得、解析、地図へのマーキングの方法を説明します。データ形式は、GeoJSONの`Point`タイプ形式だけを扱います。【[Sample](./Samples/geo_points.html)】
 
 ◆ワークショップ（＋2時間）では続いてGeoJSONの`LineString`と`Polygon`を説明してから、好みの東京都GeoJSONデータを地図を作成してもらいます。
 
