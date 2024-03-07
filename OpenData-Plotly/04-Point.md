@@ -25,7 +25,7 @@
 ]
 ```
 
-まず、Plotly Expressをインポートします。関連に従って、`px`と別名を付けます。
+まず、Plotly Expressをインポートします。慣例に従って、`px`と別名を付けます。
 
 ```Python
 import plotly.express as px

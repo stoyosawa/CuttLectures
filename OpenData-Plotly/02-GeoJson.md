@@ -58,5 +58,5 @@ JSONテキストとPythonオブジェクトの相互変換には、標準ライ�
 
 仕様はRFCで定義されています。
 
-- [RFC 7158: The JavaScript Object Notation (JSON) Data Interchange Format](https://www.rfc-editor.org/info/rfc7158)
+- [RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format](https://www.rfc-editor.org/info/rfc8259)
 - [RFC 7946: The GeoJSON Format](https://www.rfc-editor.org/info/rfc7946)
