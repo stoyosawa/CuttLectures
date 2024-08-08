@@ -34,19 +34,7 @@ resp = requests.get(url)
 '{\r\n    "type": "FeatureCollection",\r\n    "features": [\r\n        {\r\n            "type": "Feature",\r\n '
 ```
 
-応答ボディがJSON形式であるかは、HTTP応答ヘッダの`Content-Type`フィールドから確認できます。ヘッダは、`requests.Response.headers`属性にリストの形で収容されています。
-
-```Python
->>> resp.headers['Content-Type']
-'application/json'
-```
-
-日本語が文字化けすることもあります。現在使用されている文字エンコーディングは`requests.Response.encoding`属性から確認できます。これがutf-8でなければ、代入することで強制します。JSONで使用される文字はUnicodeと定められており、またそのエンコーディング方式はUTF-8が推奨されているので、決め打ちで強制しても問題はまずありません。
-
-```Python
->>> resp.encoding
-'utf-8'
-```
+> <img src="Images/ISO_7010_W011.svg.png" width="30"> オープンデータの品質は保証されていません。HTTPレスポンスヘッダの`Content-Type`フィールドが正しくないことも、文字コードが正しくないこともあります。SJISテキストでは外字が出てくることもあります。機械的な対応はかなりまでできますが、確実さを求めるなら手作業が必要です。
 
 Requestsには応答テキストがJSONであるならば、それを分解してPythonオブジェクトにして返す`requests.Response.json()`メソッドがあります。
 
