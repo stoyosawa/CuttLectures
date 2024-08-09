@@ -38,10 +38,17 @@ MongoDBのオンライン版（クラウドサービス）はアカウントを�
 
 ### 参照テキスト
 
+- 『実践RESTサーバ～Node.js、Restify、MongoDB によるバックエンド開発』（2024）...【
+	[出版社](http://www.cutt.co.jp/book/978-4-87783-549-1.html) |
+	[Amazon.co.jp](https://www.amazon.co.jp/dp/4877835490) |
+	[ヨドバシ](https://www.yodobashi.com/product/100000009003842492/) |
+	[楽天](https://books.rakuten.co.jp/rb/17857239/) |
+】 
 - 『詳説 Node.js API リファレンスと用例』（2020）...【
-	[出版社](https://www.cutt.co.jp/book/978-4-87783-489-0.html "LINK")
-	[Amazon.co.jp](https://www.amazon.co.jp/dp/4877834893 "LINK")
-	[ヨドバシ](https://www.yodobashi.com/product/100000009003304685/ "LINK")
-	[Honto](https://honto.jp/netstore/pd-book_30361360.html "LINK")】 
+	[出版社](https://www.cutt.co.jp/book/978-4-87783-489-0.html) |
+	[Amazon.co.jp](https://www.amazon.co.jp/dp/4877834893) | 
+	[ヨドバシ](https://www.yodobashi.com/product/100000009003304685/) |
+	[楽天](https://books.rakuten.co.jp/rb/16376958/)
+】 
 
-<img src="https://www.cutt.co.jp/book/images/978-4-87783-489-0.png" height="300">
+<img src="https://www.cutt.co.jp/book/images/978-4-87783-549-1.png" height="200"> <img src="https://www.cutt.co.jp/book/images/978-4-87783-489-0.png" height="200">

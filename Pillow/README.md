@@ -1,3 +1,5 @@
+## Python Pillowによる画像処理～GIFよりも高精彩なAPNGでアニメーション画像を生成する
+
 <img src="https://pillow.readthedocs.io/en/stable/_static/pillow-logo-dark-text.png" width="200">
 
 ### 目的

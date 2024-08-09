@@ -35,13 +35,21 @@
 
 引数にはファイル名を指定します。他にもオプション引数がありますが、使うことはめったにありません。戻り値は`Image`オブジェクトです。`type`で調べるとメディアタイプ別のサブクラスが示されますが、そこまで細かいことが気になることはめったにありません。
 
+Pillowで読むことのできる画像フォーマットは公式リファレンスの［[Handbook > Appendices > Image file formats](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#)］にあります。読み込みができるフォーマットであっても書き出しはできないのように非対称なところは注意が必要です。
+
+コマンドラインからも調べられます。
+
+```bash
+$ python -m PIL
+```
+
 
 #### 画像を表示する
 
 画像の表示は、`Image`のインスタンスメソッドの[`Image.show`](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.show)です。
 
 ```python
-img.show()
+>>> img.show()
 ```
 
 引数はとくにありません。
@@ -54,7 +62,7 @@ WSLなどの仮想環境ではディスプレイがないのでエラーにな�
 画像の保存は[`Image.save`](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.save)です。
 
 ```python
-img.save('cat.png')
+>>> img.save('cat.png')
 ```
 
 引数にはファイル名を指定します。画像フォーマットは拡張子から自動的に判断されます（この場合はPNG）。
