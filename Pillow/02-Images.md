@@ -10,7 +10,7 @@
 >>> from PIL import Image
 ```
 
-Pillowには他にも、機能別に用意されたモジュールがたくさんあります。たとえば、`ImageDraw`は画像上に円や四角などの幾何学模様や文字を描き込むときに、`ImageOps`は`Image`がカバーしていない（どちらかというとニッチな）処理機能を必要とするときに使います。本セミナーではリサイズに`ImageOps`を使うので、ここでインポートしておきます。
+`Image`はPillowの最も基本的なモジュールです。他に便利なモジュールはたくさんあり、たとえば`ImageDraw`は画像上に円や四角などの幾何学模様や文字を描き込むときに、`ImageOps`は`Image`がカバーしていない（どちらかというとニッチな）処理機能を必要とするときに使います。本セミナーではリサイズに`ImageOps`を使うので、ここでインポートしておきます。
 
 ```python
 >>> from PIL import ImageOps
@@ -33,18 +33,18 @@ Pillowには他にも、機能別に用意されたモジュールがたくさ�
 <class 'PIL.JpegImagePlugin.JpegImageFile'>
 ```
 
-引数にはファイル名を指定します。他にもオプション引数がありますが、使うことはめったにありません。戻り値は`Image`オブジェクトです。`type`で調べるとメディア種別別のサブクラスが示されますが、そこまで細かいことが気になることはめったにありません。
+引数にはファイル名を指定します。他にもオプション引数がありますが、使うことはめったにありません。戻り値は`Image`オブジェクトです。`type`で調べるとメディアタイプ別のサブクラスが示されますが、そこまで細かいことが気になることはめったにありません。
 
 
 #### 画像を表示する
 
-画像の表示は[`Image.show`](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.show)です。
+画像の表示は、`Image`のインスタンスメソッドの[`Image.show`](https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.show)です。
 
 ```python
 img.show()
 ```
 
-画像オブジェクトに作用させて動作させるので、引数はとくにありません。
+引数はとくにありません。
 
 WSLなどの仮想環境ではディスプレイがないのでエラーになります。注意してください。
 

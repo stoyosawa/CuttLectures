@@ -15,7 +15,7 @@ cat-3169476_640.jpg*  cat-4541889_640.jpg*  cat-8862636_640.png*  links.json*
 
 #### ファイルリストを得る
 
-指定のディレクトリからファイルのリストを得るには、[`os.scandir`](https://docs.python.org/ja/3/library/os.html#os.scandir)です。引数にディレクトリ名を指定すれば、[`os.DirEntry`](https://docs.python.org/ja/3/library/os.html#os.DirEntry)オブジェクトを生成するジェネレータを返します。
+指定のディレクトリからファイルのリストを得るには、[`os.scandir`](https://docs.python.org/ja/3/library/os.html#os.scandir)です。引数にディレクトリ名を指定すれば、[`os.DirEntry`](https://docs.python.org/ja/3/library/os.html#os.DirEntry)オブジェクトを生成するイテレータ（反復可能なオブジェクト）を返します。
 
 ```python
 >>> import os
@@ -24,15 +24,15 @@ cat-3169476_640.jpg*  cat-4541889_640.jpg*  cat-8862636_640.png*  links.json*
 <class 'posix.ScandirIterator'>
 ```
 
-ファイル名（文字列）は`os.DirEntry`の`path`プロパティに収容されています。`dir_iter`はイテレータなので、ループを組んですべて取り出します。
+ファイル名（文字列）は`os.DirEntry`の`path`プロパティに収容されています。`dir_iter`はイテレータなので、すべて取り出して文字列のリストに置き換えます（そのほうがここでは使いやすいから）。
 
 ```python
 >>> files_dir = [entry.path for entry in dir_iter]
 >>> files_dir
 [
-	'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
-	'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
-	'Data/cats-eyes-2944820_640.jpg', 'Data/links.json'
+    'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
+    'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
+    'Data/cats-eyes-2944820_640.jpg', 'Data/links.json'
 ]
 ```
 
@@ -41,9 +41,9 @@ cat-3169476_640.jpg*  cat-4541889_640.jpg*  cat-8862636_640.png*  links.json*
 
 リストには不要なものが含まれているので、拡張子が`.jpg`または`.png`のもののみを抽出します。
 
-拡張子をチェックするなど、パス文字列を拡張子やディレクトリなどに分解するなら、[`pathlib.PurePath`](https://docs.python.org/ja/3/library/pathlib.html#pathlib.PurePath)が便利です。コンストラクタにパス文字列を指定すれば、オブジェクトが生成できます。
+パス文字列を拡張子やディレクトリなどに分解してチェックするなら、[`pathlib.PurePath`](https://docs.python.org/ja/3/library/pathlib.html#pathlib.PurePath)が便利です。コンストラクタにパス文字列を指定すれば、オブジェクトが生成できます。
 
-```path
+```python
 >>> from pathlib import PurePath
 >>> pp = PurePath('Data/cat-1977416_640.jpg')
 >>> type(pp)
@@ -67,9 +67,9 @@ True
 >>> files = [f for f in files_dir if PurePath(f).suffix.lower() in EXTENSIONS]
 >>> files
 [
-	'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
-	'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
-	'Data/cats-eyes-2944820_640.jpg'
+    'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
+    'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
+    'Data/cats-eyes-2944820_640.jpg'
 ]
 ```
 
@@ -78,15 +78,28 @@ True
 
 拡張子ではなく、ファイル名のパターンなどでファイルを抽出するなら、[正規表現](https://docs.python.org/ja/3/library/re.html)です。
 
-たとえば、ファイル名に`_数値が3文字から4文字`（たとえば640、1280など）が入っているものだけを抽出するなら、こうします。
+たとえば、ファイル名にアンダースコア`_`とそれに続く3文字か4文字の数字が含まれているものものだけを抽出するなら、こうします。
 
 ```python
 >>> import re
 >>> regexp = re.compile(r'_\d[3,4]')
 >>> [f for f in files_dir if regexp.search(f)]
 [
-	'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
-	'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
-	'Data/cats-eyes-2944820_640.jpg'
+    'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
+    'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
+    'Data/cats-eyes-2944820_640.jpg'
 ]
 ```
+
+先度と同じように、ファイル名末尾が大文字小文字を問わず`.jpg`か`.png`のものを抜き出すならこう書きます。
+
+```python
+>>> [f for f in files if re.search(r'\.(jpg|png)', f, re.IGNORECASE)]
+[
+    'Data/cat-1977416_640.jpg', 'Data/cat-3169476_640.jpg', 'Data/cat-3739702_640.jpg',
+    'Data/cat-4541889_640.jpg', 'Data/cat-7866716_640.jpg', 'Data/cat-8862636_640.png',
+    'Data/cats-eyes-2944820_640.jpg'
+]
+```
+
+別の手段があるときでも正規表現を使うか使わないかは好み次第です。一般に、正規表現はパッと見てわかりにくいところがあるので、簡単なやり方があるのなら、そちらを使うというのも一案でしょう。

@@ -9,7 +9,7 @@
 - [オープンデータの活用～JSON＋jqパーザ](./OpenData-Jq/README.md)【お試し版】
 - [オープンデータの活用～Python＋Plotly](./OpenData-Plotly/README.md)【お試し版、ワークショップ版】
 - [Webスクレイピング～Python＋Janome＋Worldcloud](./Scraping/README.md)【お試し版】
-- [画像処理～Python PIL/Pillow](./Pillow/README.md)【お試し版、フルバージョン】
+- [画像処理～Python PIL/Pillow](./Pillow/README.md)【お試し版】
 - [NoSQL入門～Node.js＋Mongoose＋MongoDB Atlas](./NoSQL/README.md)【お試し版】
 
 お試し版（無料）セミナーは1時間半、ワークショップ版は3時間半、フルバージョンは6時間（1時間の休憩をはさむ）。

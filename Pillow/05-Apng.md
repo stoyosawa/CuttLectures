@@ -11,7 +11,7 @@
 ...     'cat.png',	
 ```
 
-残りは、`append_images`オプション引数から指定します。リストなので、0番目以降の要素は`[1:]`でスライスできます。
+残りは、`append_images`オプション引数からリストで指定します。ただし先頭は除外するので、`[1:]`でスライスします。
 
 ```python
 ...     append_images=resized[1:],
@@ -23,7 +23,7 @@
 ...     save_all=True,
 ```
 
-あとはオプションです。`duration`は紙芝居のフリップの速度を示します（単位はミリ秒）。`loop`は終わりまで再生したらもとに何回戻るかをセットするオプションで、デフォルトの0だとエンドレスにループします。
+あと任意の設定事項です。`duration`は紙芝居のフリップの速度を示します（単位はミリ秒）。`loop`は終わりまで再生したらもとに何回戻るかをセットするオプションで、デフォルトの0だとエンドレスにループします。
 
 画像フォーマット別の保存オプション（およびオブジェクト属性）は公式リファレンスの［Handbook > Appendices > Image file formats］に記載されています。アニメーションPNGの場合は「[APNG sequences](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#apng-sequences)」の「Saving」ところをチェックします（なぜか`save_all`の記載がないですが、それはGIFのところを見てください）。
 
@@ -34,7 +34,7 @@
 
 ```python
 >>> resized[0].save(
-	'cats.png',                        # ファイル名
+    'cats.png',                        # ファイル名
     append_images=resized[1:],         # 以降の画像
     duration=600,                      # 間隔（ミリ秒）
     loop=0                             # ループ回数（エンドレス）
@@ -47,7 +47,7 @@
 
 #### 全部まとめると
 
-以上、ファイル検索からAPNGの保存までのステップは本Githubの`Codes/apng.py`に収容されています。
+以上、ファイル検索からAPNGの保存までのステップは本Githubの[`Codes/apng.py`](https://github.com/stoyosawa/CuttSeminars/blob/main/Pillow/Codes/apng.py)に収容しました。
 
 
 
