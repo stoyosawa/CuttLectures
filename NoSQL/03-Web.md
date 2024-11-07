@@ -1,30 +1,41 @@
 ## MongoDB Atlas Web インタフェース
 
-データベースは［組織］>［プロジェクト（デフォルトProject 0）］> ［データベース］>［コレクション］>の階層で管理されています。
+データベースは階層的に管理されています。
+
+<p style="background: aquamarine;">組織 ▸ プロジェクト（デフォルトProject 0） ▸ データベース（クラスタ） ▸ コレクション</p>
 
 
 ### ログイン・ログアウト
 
-MongoDB Atlasの[ログインページ](https://account.mongodb.com/ "LINK")からログインします。ログインすると「Overview」ページが表示されます。
+MongoDB Atlasの[ログインページ](https://account.mongodb.com/ "LINK")からログインします。
+
+<img src="Images/AtlasLogin.png" width="600">
+
+ログインすると「Overview」ページが表示されます。
 
 <img src="Images/AtlasOverview.png" width="600">
 
-ログオフするには、画面右上にあるユーザ名のプルダウンメニューから「Log out」を選択します。
+> 過去の利用状況によって画面は異なります。この時点では、`Cluster0`というクラスタが作成されていますが、コレクションはまだ用意されていません。クラスタがなければ［Create cluster］から作成します。
 
+ログオフするには、画面右上にあるユーザ名のプルダウンメニューから「Log out」を選択します。
 
 ### データベースの作成
 
-［Add Data］ボタンをクリックすると、「Add Data Options」（データオプションの設定）ページに遷移します。
+［Add Data］ボタンをクリックすると、「Add Data Options」（データオプションの設定）ページに遷移します。選択肢が3つありますが、左端の「Create Database on Atlas」の［Start］ボタンをクリックします。
+
+> パネルに［Add Data］がなければ［Browse collections］をクリックし、そこから［+Create Database］でデータベースを作成します。
 
 <img src="Images/AtlasAddData1.png" width="600">
 
-選択肢が3つありますが、左端の「Create Database on Atlas」の［Start］ボタンをクリックすることで、次の「Add Data Options」ページに遷移します。
+「Add Data Options」ページに遷移します。ここから、データベース（コレクションの集合）とコレクション（ここで作成するテーブル）の名前をセットします。
 
 <img src="Images/AtlasAddData2.png" width="600">
 
-データベース（コレクションの集合）とコレクション（ここで作成するテーブル）の名前をセットします。
+コレクションの構造を指定するスイッチボタンが2つありますが（現在は3つ）、いずれもオフにします。
 
-コレクションの構造を指定するスイッチボタンが2つありますが、どちらもオフにします。「Capped collection」はサイズ上限を設けたコレクションで、上限以上のデータを挿入すると循環式バッファのように古いものから削除されます。「Time series collection」はドキュメントに必ず時刻情報が加わるものです。販売記録や株価のようなデータに向きます。
+- Capped collection：サイズ上限を設けたコレクションで、上限以上のデータを挿入すると循環式バッファのように古いものから削除されます。
+- Time series collection：ドキュメントに必ず時刻情報フィールドが加わるものです。販売記録や株価のようなデータに向きます。
+- Clustered index collection: コレクションを`_id`でソートします
 
 その下のフィールドは、コレクションに挿入するドキュメントです。JSONオブジェクトを1つ（1レコードぶん）を書き込みます。ここでは、次のデータを投入します。
 
@@ -45,9 +56,6 @@ JSONテキストが正しく書かれていないと「Insert not permitted whil
 完了すると、画面がデータベースビューに遷移します。タブが［Collections］になっており、今作成したdrinkデータベースに、sakeコレクションが作成され、その中のドキュメントが1つ表示されています。
 
 <img src="Images/AtlasAddData3.png" width="600">
-
-ドキュメントには、挿入時にはなかった`_id`フィールドが加わっています。これは、MongoDBが付けるオブジェクトIDで、リレーショナルデータベースでいうところのプライマリキーのように、一意にドキュメントを指し示すためのものです（12バイト長の16進数文字列24個です）。
-
 
 ### ドキュメントの挿入
 

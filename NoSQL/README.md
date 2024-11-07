@@ -2,9 +2,9 @@
 
 ### 目的
 
-本セミナーでは[NoSQL](https://ja.wikipedia.org/wiki/NoSQL "LINK")、その中でもJSONデータに特化したMongoDBの利用方法を説明します。
+本セミナーでは[NoSQL](https://ja.wikipedia.org/wiki/NoSQL "LINK")、その中でもJSONデータに特化したMongoDB Atlasの利用方法を説明します。
 
-<img src="./Images/MongoMain.png" width="500">
+<img src="./Images/AtlasMain.png" width="600">
 
 MongoDBのオンライン版（クラウドサービス）はアカウントを登録するだけで即座に利用できます。クレジットカードの提示も必要ありません。
 
