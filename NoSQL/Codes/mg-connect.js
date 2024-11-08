@@ -31,6 +31,8 @@ async function connect(url, options) {
 
 
 if (require.main === module) {
-	let credential = JSON.parse(fs.readFileSync(process.argv[2], {encoding: 'utf-8'}));
+	let file = process.argv[2];
+	let credentials = JSON.parse(fs.readFileSync(file, {encoding: 'utf-8'}));
+	let credential = credentials['MongoDB'];
 	connect(credential.url, credential.options);
 }

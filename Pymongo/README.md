@@ -1,14 +1,12 @@
 # Pythonのデータをクラウドデータベースで管理しよう～MongoDB Atlas＋Pymongo
 
-> 作成中
-
 ### 目的
 
-本セミナーでは、ドキュメント型データベースの1つである[MongoDB](https://www.mongodb.com/ja-jp "LINK")で、Pythonのデータを管理する方法を示します。
+本セミナーでは、クラウド型データベースサービスの[MongoDB Atlas](https://www.mongodb.com/ja-jp/products/platform/atlas-database "LINK")で、Pythonのデータを管理する方法を示します。
 
-クラウド型のデータベースサービスはAWSなどいろいろありますが、ここで紹介するMongoDB Atlasは、アカウントを作成するだけで即座に利用できるので便利です。クレジットカードの提示も求められないので、課金されたらどうしよう、と悩まなくて済むのも嬉しいところです。
+クラウド型のデータベースサービスにはAWSなどいろいろありますが、MongoDB Atlasは、アカウントを作成するだけで即座に利用できるので便利です。クレジットカードの提示も求められないので、課金されたらどうしよう、と悩まなくて済むのも嬉しいところです。
 
-<img src="./Images/00-Readme/mongo-top.png">
+<img src="./Images/00-Readme/atlas-top.png" width="600">
 
 
 ### プログラム
@@ -27,7 +25,7 @@
 - プログラミング言語: [Python](https://www.python.org/ "LINK")
 - 使用する外部ライブラリ: [Pymongo](https://www.mongodb.com/ja-jp/docs/languages/python/pymongo-driver/current/ "LINK")
 
-オンラインPythonからも実行できます。要領は同じなので、本セミナーでは時期に環境が整っているとして説明します。
+オンラインPythonからも実行できます。要領は同じなので、本セミナーでは自機に開発環境が整っているとして説明します。
 
 
 ### 受講の条件

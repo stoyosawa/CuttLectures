@@ -28,11 +28,11 @@ Successfully installed dnspython-2.7.0 pymongo-4.10.1
 
 ### Documentation
 
-Pymongoのドキュメントは次に置かれています。
-
-```https://www.mongodb.com/ja-jp/docs/languages/python/pymongo-driver/current/```
+使い方は[Pymongoドキュメント](https://www.mongodb.com/ja-jp/docs/languages/python/pymongo-driver/current/ "LINK")に詳しく書かれています。
 
 <img src="Images/04-Install/mongo-document-top.png">
+
+ほぼ全部が和訳されていますが、APIドキュメントは英語のままです。
 
 
 ### 実行
@@ -75,3 +75,30 @@ Password:
 >>> p
 'test'
 ```
+
+
+### 接続文字列の取得
+
+MongoDBクラスタに接続するときに用いるURL文字列（接続文字列）は、Atlasの「Overview」画面にある［Connec］から得られます。
+
+<img src="Images/04-Install/overview-connect.png" width="600">
+
+ダイアログボックスでは「Connect to your application」で「Drivers」を選択します。
+
+<img src="Images/04-Install/connect-drivers.png" width="600">
+
+「Connect to XXX」（クラスタ名）ダイアログボックスには言語環境の選択（第1項目）やドライバのインストール方法（第2項目）がありますが、そこは無視して、3番目の「Add your connection string into your application code」にあるURLをコピーします。
+
+<img src="Images/04-Install/connect-url.png" width="600">
+
+URLのフォーマットは次のとおりです（`?`以下のクエリ文字列は接続に必須ではありません）。
+
+```mongodb+srv://<db_username>:<db_password>@<cluster_name>.vklbtaf.mongodb.net/```
+
+`<db_username>`と`<db_password>`は「[2. MongoDB Atlasの⑥管理者アカウントの設定](./02-Account.md#⑥管理者アカウントの設定 "INTERNAL")」で設定したものです（一般ユーザのほうが好ましければ、Webインタフェースから作成します）。
+
+URLに埋め込まれたユーザーの認証情報はUser Informationという権限元の副要素です（詳細は[RFC 3986 Section 3.2.1](https://datatracker.ietf.org/doc/html/rfc3986#section-3.2.1 "LINK")）。User Informationの使用は最近では好ましくはないとされているので、ここではそれを取り除いて用います。
+
+```mongodb+srv://<cluster_name>.vklbtaf.mongodb.net/```
+
+Atlasのデフォルトポートは270171です。
