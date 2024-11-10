@@ -1,5 +1,8 @@
 ## 4. Pymongoの導入
 
+PythonからMongoDBを操作するには、Pymongoライブラリが必要です。
+
+
 ### インストール
 
 Python用MongoDBドライバーは`pymongo`です。`pip`からインストールします。

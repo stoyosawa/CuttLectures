@@ -1,36 +1,34 @@
-## 1. MongoDBとは
+## 1. MongoDBってどんなデータベース？
 
-### MongoDB
+MongoDBは、辞書（`dict`）やリスト（`list`）やバイト列（`bytes`）で構造化されたPythonデータをそのままの恰好で受け付けます。画像もワードファイルもOKです。
 
-MongoDBは[ドキュメント型データベース](https://aws.amazon.com/jp/nosql/document/ "LINK")です。
 
-ドキュメント型データベースは、データベースで一般的な表形式の構造を取らず、プログラミングで普通に用いられるデータ構造でデータを表現・収容するタイプのデータベースです。「ドキュメント」を名乗っていますが、普通のテキストやワードなどの文書ファイルとは関係はありませんし、それらを収容するものでもありません。
+### MongoDBのデータ形式
 
-MongoDBはデータをJSONで表現します。JSONのフォーマットはPythonの辞書`dict`とほぼ同じなので、PythonとMongoDBは直接的にデータを交換できます。
+MongoDBは、[JSON](https://www.oracle.com/jp/database/what-is-json/#data-types "LINK")形式でデータを表現・収容するタイプのデータベースです。JSONはPythonの辞書`dict`などの基本型とほぼ同じなので、PythonとMongoDBは直接的にデータを交換できます。
 
-SQLを使わないデータベースの総称である[NoSQL](https://ja.wikipedia.org/wiki/NoSQL "LINK")タイプの一種です。
+JSONを使うという点で、表形式を使う一般的なデータベース（リレーショナル型）とは異なるタイプのデータベースです（NoSQLの「ドキュメント型」に分類されますが、呼称は気にしなくて結構です）。
 
-MongoDBはNoSQLの中でもトップクラスの人気を誇っています（[DB-Engines](https://db-engines.com/en/ranking "LINK")より）。
-
-<img src="Images/01-Introduction/db-engine-ranking.png">
+<!-- NIER（国立教育政策研究所）、Visual Studio Code より。-->
+<img src="https://www.nier.go.jp/saka/rika/2005RDB.files/image002.gif" height="150"> <img src="https://code.visualstudio.com/assets/docs/languages/json/json_hero.png" height="150">
 
 
 ### MongoDB Atlas
 
-MongoDBには、一般のデータベースサーバ同様にホストシステムにインストールして運用するタイプと、オンラインで使えるクラウドタイプがあります。ユーザレベルでは、使い勝手に変わりはありません。ここで紹介するのは、[MongoDB Atlas](https://www.mongodb.com/ja-jp/atlas/database "LINK")と呼ばれる後者のクラウドタイプです。
+MongoDBにはホストシステムにインストールして運用するタイプと、オンラインで使えるクラウドタイプがあります。ユーザレベルでは、使い勝手に変わりはありません。ここで紹介するのは、[MongoDB Atlas](https://www.mongodb.com/ja-jp/atlas/database "LINK")と呼ばれる後者のクラウドタイプです。
 
 MongoDB Atlasは無償で利用できます。ストレージサイズが小さくてシステムリソースが共有という制約はありますが、カジュアルな目的にはこれで十分です。シリアスな用途には[有償版](https://www.mongodb.com/pricing "LINK")もあります。
 
-<img src="Images/01-Introduction/atlas-pricing.png">
+<img src="Images/01-Introduction/atlas-pricing.png" width="600">
 
 
-### MongoDBのデータ構造
+### MongoDBの構造
 
-MongoDB Atlasでは、データベースインスタンスを「**クラスタ**」と呼びます。ホストシステムで稼働するプロセスなら「データベースサーバ」と呼ぶものです。クラスタは普通、1つだけ使います（複数あってもかまわないが）。
+MongoDB Atlasでは、データベースインスタンスを「**クラスタ**」と呼びます（。ホストシステムで稼働するものなら「プロセス」や「サーバ」と呼ばれるものです。クラスタは普通、1つ（ひとかたまり）だけ使います（複数あってもかまわないが）。
 
-クラスタには複数の「**データベース**」を収容できます。これは、リレーショナル型でもデータベースと呼ばれるものに相当します。Excelならファイルです。
+クラスタには複数の「**データベース**」を収容できます。これは、リレーショナル型でもデータベースと呼ばれるものに相当します。Excelのようなスプレッドシートアプリケーションなら1つのファイルにまとめられるものです。
 
-データベースには複数の「**コレクション**」を収容できます。これはリレーショナル型では「テーブル」（表）に、Excelのようなスプレッドシートアプリケーションでは「シート」に相当します。
+データベースには複数の「**コレクション**」を収容できます。これはリレーショナル型では「テーブル」（表）に、Excelでは「シート」に相当します。
 
 コレクションには複数の「**ドキュメント**」が収容できます。テーブル上の各レコード（行）やExcelの1行に相当します。MongoDBでは、これは1つのJSONオブジェクトです。
 
@@ -45,16 +43,15 @@ MongoDB Atlasでは、データベースインスタンスを「**クラスタ**
 レコード（行） | ドキュメント（JSONテキスト） | 行
 コラム（列） | （JSONオブジェクトの）フィールド | 列
 
+<!-- AWSの「ドキュメントデータベースとは」にある図（AWSのドキュメント型データベースはAmazon DocumentDB）-->
+<img src="https://d1.awsstatic.com/AWS%20Databases/JSON%20document%20database.64fe2a382abc8ca2b8743f0e3b5af553a33f3fb0.png" width="400">
+
 ドキュメントを挿入すると、MongoDBはそれぞれのドキュメントに一意な`_id`というフィールドを自動的に挿入します。`_id`フィールドはリレーショナルデータべースのプライマリキーのような役割を果たします。
-
-AWSの「ドキュメントデータベースとは」にある図がわかりやすいです（AWSのドキュメント型データベースはAmazon DocumentDBといいます）。
-
-<img src="https://d1.awsstatic.com/AWS%20Databases/JSON%20document%20database.64fe2a382abc8ca2b8743f0e3b5af553a33f3fb0.png" width="600">
 
 
 ### JSON
 
-JSONは、次のデータ型の組み合わせですべてのデータを表現します。
+オリジナルの[JSON](https://www.oracle.com/jp/database/what-is-json/#data-types "LINK")は、次のデータ型の組み合わせですべてのデータを表現します。
 
 - 数値（number）
 - 文字列（string）
@@ -65,18 +62,4 @@ JSONは、次のデータ型の組み合わせですべてのデータを表現�
 
 これらはPythonの組み込みデータ型と**おおむね**一致しています。
 
-JSONの数値には整数（`int`）や浮動小数点数（`float`）など細かい区別はありません。有効桁数やビット数にも仕様上は制限はありませんが、32ビット浮動小数点数（[IEEE 754](https://ja.wikipedia.org/wiki/IEEE_754 "LINK")）を超えた範囲は実装依存なので、使うべきではありません。JSONには複素数型（complex）はありません。
-
-JSONの文字列は必ず二重引用符`"`でくくらなければなりません。Pythonの`str`は単一引用符`'`も使えますが、JSONでは文法違反です。
-
-真偽値（`bool`）は、Pythonでは`True`、`False`です。大文字小文字に注意します。
-
-`null`は`None`です。
-
-配列はリスト（`list`）です。pythonの`tuple`も`set`も区別なく配列扱いです。JSONはバイナリを扱えないので（すべてテキストで記述される）、`bytes`や`bytesarray`はそのままでは記述できません。
-
-オブジェクトは辞書（`dict`）です。
-
-細かいことを確認したくなったら、公式の仕様である[RFC 8259 "The JavaScript Object Notation (JSON) Data Interchange Format"](https://www.rfc-editor.org/info/rfc8259 "LINK")を参照します。
-
-> MongoDBのJSONはバイナリ版JSON（BSON）なので、`int`と`float`を区別したり、`bytes`や`dateTime.datetime`を直接扱うことができます。詳しくは[bson – BSON (Binary JSON) Encoding and Decoding](https://pymongo.readthedocs.io/en/stable/api/bson/index.html "LINK")を参照してください。
+MongoDBは、JSONの変形判（バイナリ版）の[BSON](https://www.mongodb.com/ja-jp/docs/manual/reference/bson-types/ "LINK")を使っています。BSONでは数値は文字列表記の数字の羅列でなく、Pythonのように整数型（`int`）や浮動小数点数型（`float`）に分かれて定義されていますが、使うぶんには詳細は気にしなくても問題はありません。データ型は拡張されていて、オリジナルでは表現できないバイナリ（`bytes`）や日時（`datetime.datetime`）も使えます。

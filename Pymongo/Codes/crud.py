@@ -1,20 +1,8 @@
 #!/usr/bin/env python
-# 2024-11-09
-# 設定を読む
 
-import json
 from pprint import pprint
 import sys
-from pymongo import MongoClient
-
-
-def db_connect(file):
-	with open(file) as fp:
-		creds = json.load(fp)
-		options = creds['Pymongo']['options']
-
-	client = MongoClient(**options)
-	return client
+from config import db_connect
 
 
 def db_get_collection(client, database_name, collection_name):
@@ -33,6 +21,13 @@ def db_insert(collection, doc):
 	collection.insert_one(doc)
 
 
+def db_delete(colction, query_filter):
+	collection.delete_one(query_filter)
+
+
+def db_update(collection, query_filter, update_operation):
+	collection.update_one(query_filter, update_operation)
+
 
 if __name__ == '__main__':
 	client = db_connect(sys.argv[1])
@@ -45,4 +40,7 @@ if __name__ == '__main__':
 	    "location": "東京福生市",
     	"phone": "042-553-0100"
 	  })
+	db_delete(collection, {'company': '野口酒造店'})
+	db_update(collection, {'yomi': 'しだいずみしゅぞう'}, { '$set': {'url': 'http://shidaizumi.com/'}})
+
 	client.close()
