@@ -11,7 +11,7 @@
 - [Webスクレイピング～Python＋Janome＋Worldcloud](./Scraping/README.md)【お試し版】
 - [GIFアニメーションはもう古い。Python Pillowを使ったPNGアニメーション](./Pillow/README.md)【お試し版】
 - [NoSQL入門～Node.js＋Mongoose＋MongoDB Atlas](./NoSQL/README.md)【お試し版】
-- [Pythonのデータをクラウドデータベースで管理しよう～MongoDB Atlas＋Pymongo](./Pymongo/README.md)【お試し版】
+- [クラウドデータベースでデータを共有しよう～MongoDB Atlas＋Pymongo](./Pymongo/README.md)【お試し版】
 
 お試し版（無料）セミナーは1時間半、ワークショップ版は3時間半、フルバージョンは6時間（1時間の休憩をはさむ）。
 

@@ -13,13 +13,13 @@ Atlasの無償利用の範囲は512 MBまでですが、画像など大きなも
 
 ### プログラム
 
-セミナーの時間は90分です。
+セミナーの時間は60分です。
 
 1. [MongoDBってどんなデータベース？](./01-Introduction.md "INTERNAL")
 2. [MongoDB Atlas～アカウントの作成](./02-Account.md "INTERNAL")
 3. [MongoDB Atlas～Webインタフェースでの操作](./03-Web.md "INTERNAL")
 4. [Pymongoのインストール](./04-Install.md "ITNERNAL")
-5. [Pymongonの使い方](./05-Pymongo.md "ITNERNAL")
+5. [Pymongoの使い方](./05-Pymongo.md "ITNERNAL")
 
 
 ### 環境
@@ -32,7 +32,7 @@ Atlasの無償利用の範囲は512 MBまでですが、画像など大きなも
 
 ### 注意
 
-MongoDB AtlasのWebインタフェース画面は頻繁に変更されます。本資料の画面は作成時のもので、セミナー時のものと異なることがあります。
+MongoDB AtlasのWebインタフェース画面は頻繁に変更されます。本資料の画面は作成時のもので、セミナー時とは異なることがあります。
 
 
 ### 受講の条件
