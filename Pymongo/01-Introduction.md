@@ -9,9 +9,6 @@ MongoDBは、[JSON](https://www.oracle.com/jp/database/what-is-json/#data-types 
 
 JSONを使うという点で、表形式を使う一般的なデータベース（リレーショナル型）とは異なるタイプのデータベースです（NoSQLの「ドキュメント型」に分類されますが、呼称は気にしなくて結構です）。
 
-<!-- NIER（国立教育政策研究所）、Visual Studio Code より。-->
-<img src="https://www.nier.go.jp/saka/rika/2005RDB.files/image002.gif" height="150"> <img src="https://code.visualstudio.com/assets/docs/languages/json/json_hero.png" height="150">
-
 
 ### MongoDB Atlas
 
@@ -43,8 +40,6 @@ MongoDB Atlasでは、データベースインスタンスを「**クラスタ**
 レコード（行） | ドキュメント（JSONテキスト） | 行
 コラム（列） | （JSONオブジェクトの）フィールド | 列
 
-<!-- AWSの「ドキュメントデータベースとは」にある図（AWSのドキュメント型データベースはAmazon DocumentDB）-->
-<img src="https://d1.awsstatic.com/AWS%20Databases/JSON%20document%20database.64fe2a382abc8ca2b8743f0e3b5af553a33f3fb0.png" width="400">
 
 ドキュメントを挿入すると、MongoDBはそれぞれのドキュメントに一意な`_id`というフィールドを自動的に挿入します。`_id`フィールドはリレーショナルデータべースのプライマリキーのような役割を果たします。
 
