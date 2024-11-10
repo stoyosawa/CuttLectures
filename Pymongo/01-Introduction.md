@@ -16,7 +16,7 @@ MongoDBにはホストシステムにインストールして運用するタイ�
 
 MongoDB Atlasは無償で利用できます。ストレージサイズが小さくてシステムリソースが共有という制約はありますが、カジュアルな目的にはこれで十分です。シリアスな用途には[有償版](https://www.mongodb.com/pricing "LINK")もあります。
 
-<img src="Images/01-Introduction/atlas-pricing.png" width="600">
+<img src="Images/01-Introduction/Atlas-pricing.png" width="600">
 
 
 ### MongoDBの構造
