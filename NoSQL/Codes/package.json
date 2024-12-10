@@ -1,0 +1,14 @@
+{
+  "name": "codes",
+  "version": "1.0.0",
+  "description": "Cutt seminor sample codes",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.0.3"
+  }
+}
