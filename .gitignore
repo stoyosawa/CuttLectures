@@ -1,8 +1,0 @@
-# リポジトリのセッティング
-
-# インストールした npm モジュールは含まない。
-NoSQL/Codes/node_modules
-
-# PillowではDataフォルダは隠す。
-Pillow/Codes/Data
-
