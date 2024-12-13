@@ -15,11 +15,11 @@
 
 #### FYI: Course titles in English
 
-[Cutt System + Mirai Design: Advanced Technology Academy Online Seminar Series](https://seminar.cutt.co.jp/)
+[Cutt System + Mirai Design: Advanced Technology Academy Online Lecture Series](https://seminar.cutt.co.jp/)
 
 - TCP/IP Networking Fundamentals - ARP, IP, ICMP, TCP, HTTP, UDP, DNS, and Wireshark packet capturing.
-- Intoroduction to `jq` - Command line oriented JSON parser
-- Utilising Open Data - JSON + `jq`
+- Intoroduction to jq - Command line oriented JSON parser
+- Utilising Open Data - JSON + jq
 - Utilising Open Data - GeoJSON + Python Plotly
 - Web Scraping with Python  
 - Image Processing with Python Pillow
